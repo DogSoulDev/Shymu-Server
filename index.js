@@ -4,8 +4,12 @@ const app = express();
 const mongoose = require("mongoose");
 const UserModel = require("./models/Users"); //*Nos importamos el modelo Users.
 
+//!Cors nos permite conectarnos con el Front 'sin errores'.
+const cors = require("cors");
+
 //! Esto es MUY importante ponerlo para que los objetos que nos mande el Font con peticiones, modificicaciones o lo que sea se conviertan a formato json y pueda interactuar con la base de datos.
 app.use(express.json());
+app.use(cors());
 
 //! Hay que cifrar la password en: https://www.mongodb.com/docs/atlas/troubleshoot-connection/#special-characters-in-connection-string-password
 //! Hay que conectarse en mongodb compass con esta dirección: mongodb+srv://shymu1234:<password>@cluster0.oauhhpa.mongodb.net/test
