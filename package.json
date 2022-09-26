@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "cloudinary": "^1.32.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
@@ -21,7 +22,7 @@
     "helmet": "^6.0.0",
     "json-server": "^0.17.0",
     "jsonwebtoken": "^8.5.1",
-    "lodash": "^4.17.21",
+    "loglevel": "^1.8.0",
     "mongodb": "^4.10.0",
     "mongoose": "^6.6.1",
     "morgan": "^1.10.0",

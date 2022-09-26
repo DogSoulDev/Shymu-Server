@@ -3,9 +3,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const UserModel = require("./models/Users"); //*Nos importamos el modelo Users.
-
+const bcrypt = require("bcrypt"); //* ==el bcrypt se utiliza para hashear o cifrar las passwords.(ejemplo abajo).==
 //!Cors nos permite conectarnos con el Front 'sin errores'.
 const cors = require("cors");
+
+
+
 
 //! Esto es MUY importante ponerlo para que los objetos que nos mande el Font con peticiones, modificicaciones o lo que sea se conviertan a formato json y pueda interactuar con la base de datos.
 app.use(express.json());
@@ -27,7 +30,7 @@ mongoose.connect(
 //* Cuando se lanza la petición del front, (if/else) después de recibirla de la base de datos, si hay un error mandamos 'err' y si está bien mandamos el resultado 'res'.
 //*get obviamente es solo para hacer peticiones y mover los datos.
 
-app.get("/getUsers", (req, res) => {
+app.get("/getUsers", async (req, res) => {
 	UserModel.find({}, (err, result) => {
 		if (err) {
 			res.json(err);
@@ -51,6 +54,21 @@ app.post("/createUser", async (req, res) => {
 
 	res.json(user);
 });
+
+//!==Esto es un ejemplo de como funciona bcrypt==
+// app.post("/login", async (req, res) => {
+// 	//*datos que pongo en postman en el body formato json:
+// 	const user = req.body.user;
+// 	const password = req.body.password;
+// 	//*comprobamos que coincide el user y el password:
+// 	if (user == "admin" && password == "12345") {
+// 		const passwordHash = await bcrypt.hash(password, 8);
+// 		res.json({ message: "Autentificacion Correcta!", passwordHash: passwordHash });
+// 	} else {
+// 		res.json({ message: "Autentificacion Incorrecta!" });
+// 	}
+// });
+
 
 //! Ponemos el puerto 3001 porque React usara el 3000.
 app.listen(3001, (req, res) => {
