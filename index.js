@@ -70,7 +70,7 @@ app.post("/createUser", async (req, res) => {
 // 	}
 // });
 
-//! Ponemos el puerto 3001 porque React usara el 3000.
-app.listen(3001, (req, res) => {
+//! Ponemos el puerto 3001 del servidor, porque React usara el 3000.
+app.listen(`${process.env.SERVER}`, (req, res) => {
 	console.log("Server runs OK");
 });

@@ -1,5 +1,5 @@
-const dotenv = require("dotenv"); //*Para poder evitar subir passwords al github hay que usar el dotenv de la siguiente manera:
-dotenv.config();
+// const dotenv = require("dotenv"); //*Para poder evitar subir passwords al github hay que usar el dotenv de la siguiente manera:
+// dotenv.config();
 // const logger = require('loglevel');
 
 // logger.enableAll();

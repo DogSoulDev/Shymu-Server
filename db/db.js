@@ -1,1 +1,1 @@
-// Pendiente de createRouter.
+const mongoose = require('mongoose');
