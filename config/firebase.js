@@ -1,6 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
+
+const dotenv = require("dotenv"); //*Para poder evitar subir passwords al github hay que usar el dotenv de la siguiente manera:
+dotenv.config();
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
