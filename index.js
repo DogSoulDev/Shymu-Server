@@ -6,6 +6,9 @@ const UserModel = require("./models/Users"); //*Nos importamos el modelo Users.
 const bcrypt = require("bcrypt"); //* ==el bcrypt se utiliza para hashear o cifrar las passwords.(ejemplo abajo).==
 //!Cors nos permite conectarnos con el Front 'sin errores'.
 const cors = require("cors");
+const dotenv = require("dotenv");
+dotenv.config();
+
 
 
 
@@ -20,7 +23,7 @@ app.use(cors());
 //*Ahora mongoose lo conectamos desde mongodb atlas con la opcion 'connect your application'.
 //*Creo una base de datos en mongodb compass y le pongo el nombre en la dirección de abajo, en este caso es 'ShymuDB'.
 mongoose.connect(
-	"mongodb+srv://shymu1234:shymu1234@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority",
+	`mongodb+srv://shymu1234:${process.env.SECRET_KEY}@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority`,
 );
 
 //! Creamos este puente que establece la conexión entre nuestro Font y nuestra base de datos:
