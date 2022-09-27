@@ -1,5 +1,4 @@
 const express = require("express"); //*framework de Nodejs - Mecanismos para peticiones con diferentes verbos HTTP en diferentes URLS.
-//!app representa todo lo que express trae de la libreria.
 const app = express(); //* Le damos acceso a la App a toda la libreria de express y asi poder manipularlo/agregar/borrar o hacer peticiones a db.
 const mongoose = require("mongoose"); //*Libreria de Nodejs para escribir consultas a la base de datos mongodb
 const UserModel = require("./models/Users"); //*Nos importamos el modelo Users.
@@ -21,7 +20,6 @@ app.use(cors());
 mongoose.connect(
 	`mongodb+srv://shymu1234:${process.env.SECRET_KEY}@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority`,
 );
-
 
 //! Creamos este puente que establece la conexión entre nuestro Font y nuestra base de datos:
 //!Resquest y Response, 'req'= nos pide la informacin desde el front y 'res'= nos trae la informacion de la base de datos.
@@ -55,7 +53,7 @@ app.post("/createUser", async (req, res) => {
 	res.json(user);
 });
 
-//!==Esto es un ejemplo de como funciona bcrypt==
+//!====Esto es un ejemplo de como funciona bcrypt====
 // app.post("/login", async (req, res) => {
 // 	//*datos que pongo en postman en el body formato json:
 // 	const user = req.body.user;
