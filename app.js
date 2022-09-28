@@ -1,6 +1,6 @@
 //*Primer paso en verde.
-//?Segundo paso en azul.
-//!Tercer paso en rojo.
+//?Puntos a tener en cuenta.
+//!Importante.
 
 //* Importar e inicializar express asociarlo a app para poder interactuar luego.
 const express = require('express');

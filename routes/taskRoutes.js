@@ -1,6 +1,6 @@
 //*Primer paso en verde.
-//?Segundo paso en azul.
-//!Tercer paso en rojo.
+//?Puntos a tener en cuenta.
+//!Importante.
 
 const express = require('express');
 const api = express.Router();

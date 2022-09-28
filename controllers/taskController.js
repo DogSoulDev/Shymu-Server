@@ -1,10 +1,11 @@
 //*Primer paso en verde.
-//?Segundo paso en azul.
-//!Tercer paso en rojo.
+//?Puntos a tener en cuenta.
+//!Importante.
 
-// *Cargar el modelo de tasks:
+//!Cargar el modelo de tasks:
 const Task = require('../models/taskModel');
 
+//!postTask
 //*Nueva función asíncrona para crear tareas:
 async function postTask(req, res) {
   //*se crea una objeto del modelo:
@@ -35,6 +36,7 @@ async function postTask(req, res) {
 //*....................................................................
 //*....................................................................
 
+//!getTasks
 async function getTasks(req, res) {
   try {
     //*Recuperar tareas de base de datos:
@@ -57,6 +59,7 @@ async function getTasks(req, res) {
 //*....................................................................
 //*....................................................................
 
+//!getTask
 //*Recuperar una sola tarea:
 async function getTask(req, res) {
   //*Recuperar el id:
@@ -81,6 +84,7 @@ async function getTask(req, res) {
 //*....................................................................
 //*....................................................................
 
+//!putTask
 //*Crear la función (no asincrona) para actualizar tareas:
 function putTask(req, res) {
   //*Recuperar el id:
@@ -93,10 +97,10 @@ function putTask(req, res) {
     Task.findById(taskId, (err, taskData) => {
       //*Comprobar si hay errores al recuperar tarea:
       if (err) {
-        res.status(500).send({ msg: 'Server status error' });
+        res.status(500).send({ msg: 'Server status error' }); //?(Error 500) -The HyperText Transfer Protocol (HTTP) 500 Internal Server Error server error response code indicates that the server encountered an unexpected condition that prevented it from fulfilling the request.
       } else {
         if (!taskData) {
-          res.status(400).send({ msg: "Error: Task doesn't exists" });
+          res.status(400).send({ msg: "Error: Task doesn't exists" }); //?(Error 400) -The HyperText Transfer Protocol (HTTP) 400 Bad Request response status code indicates that the server cannot or will not process the request due to something that is perceived to be a client error (for example, malformed request syntax, invalid request message framing, or deceptive request routing).
         } else {
           //*Recuperar parametros a modificar:
           taskData.name = params.name;
@@ -121,7 +125,7 @@ function putTask(req, res) {
 }
 
 module.exports = {
-  postTask, //*exportar modulo nuevo
+  postTask,
   getTasks,
   getTask,
   putTask,

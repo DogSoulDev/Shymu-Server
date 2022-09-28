@@ -1,6 +1,6 @@
 //*Primer paso en verde.
-//?Segundo paso en azul.
-//!Tercer paso en rojo.
+//?Puntos a tener en cuenta.
+//!Importante.
 
 //*Se importa mongoose para mongodb y se inicializa el modulo schema para hacer un modelo:
 const mongoose = require('mongoose');
