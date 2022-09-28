@@ -1,12 +1,18 @@
-//*Importa y carga el enrutador de express lo metemos en la constante api y podemos acceder luego a ella.
+//*Primer paso en verde.
+//?Segundo paso en azul.
+//!Tercer paso en rojo.
+
 const express = require('express');
 const api = express.Router();
 
-//*Se importa el controlador para cada ruta:
-const taskController = require("../controllers/taskController");
+const taskController = require('../controllers/taskController');
 
-//*Se agrega el controlador a una ruta determinada:
-api.get("/tasks", taskController.getTasks);
+//*Añadir ruta para crear tareas:
+api.post('/tasks', taskController.postTask);
+api.get('/tasks', taskController.getTasks);
+//*Listar una tarea:
+api.get('/tasks/:id', taskController.getTask);
+//*Actualizar una tarea:
+api.put('/tasks/:id', taskController.putTask);
 
-//*Meteremos todas las rutas en este fichero para poder usarlas luego.
 module.exports = api;

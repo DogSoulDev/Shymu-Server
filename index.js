@@ -1,41 +1,36 @@
-//!Importar mongoose.
+//*Primer paso en verde.
+//?Segundo paso en azul.
+//!Tercer paso en rojo.
+
+//*Importar mongoose.
 const mongoose = require('mongoose');
-//*Importamos dotenv y lo llamamos."
+//*Importamos dotenv y lo llamamos(para que lea lo que tenemos en el archivo .env)."
 const dotenv = require('dotenv');
 dotenv.config();
 
-//*Importa la constante app con express:
+//*Importamos app y le agregamos el framework de express.
 const app = require('./app');
 
-//* conectar mongoose a mongodb, en la ruta de la base de datos.
+//*Conecta Nodejs con Mongodb usando mongoose(javascript library).
 mongoose.connect(
-	`mongodb+srv://shymu1234:${process.env.SECRET_KEY}@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority`,(err) =>{
-    try{
-        if(err){
-            throw err;
-        }else{
-            console.log("Connection to Database OK!");
-        }
-    }catch(error){
-        console.error("Error connecting to Database!");
+  `mongodb+srv://shymu1234:${process.env.SECRET_KEY}@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority`,
+  (err, req) => {
+    try {
+      if (err) {
+        throw err;
+      } else {
+        console.log('Connection to Database OK!');
+      }
+    } catch (error) {
+      console.error('Error connecting to Database!');
     }
-});
+  }
+);
 
-//*Lanzar el escuchador:
+//*Escuchador:
 app.listen(`${process.env.SERVER}`, (req, res) => {
-	console.log("Server runs OK");
+  console.log('Server runs OK');
 });
-
-
-
-
-
-
-
-
-
-
-
 
 // const express = require("express"); //*framework de Nodejs - Mecanismos para peticiones con diferentes verbos HTTP en diferentes URLS.
 // const app = express(); //* Le damos acceso a la App a toda la libreria de express y asi poder manipularlo/agregar/borrar o hacer peticiones a db.
