@@ -1,1 +1,6 @@
-// Pendiente de createRouter.
+const userController = require('./usersController');
+
+
+module.exports = {
+  userController,
+};
