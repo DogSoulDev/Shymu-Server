@@ -1,0 +1,19 @@
+{
+  //! Toda la info en:  https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+      {
+          "type": "node",
+          "request": "launch",
+          "name": "Launch Program",
+          "skipFiles": [
+              "<node_internals>/**"
+          ],
+          // reemplazar la linea program por la ruta de nodemon y añadir la ruta de index.js en args:
+          "program": "${workspaceFolder}/node_modules/nodemon/bin/nodemon.js",
+          "args": [
+              "${workspaceFolder}\\index.js"
+          ]
+      }
+  ]
+}
