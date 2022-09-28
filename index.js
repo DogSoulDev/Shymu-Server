@@ -1,13 +1,30 @@
+//!Importar mongoose.
+const mongoose = require('mongoose');
+//*Importamos dotenv y lo llamamos."
+const dotenv = require('dotenv');
+dotenv.config();
 
 //*Importa la constante app con express:
 const app = require('./app');
-const port = 3001;
 
-//*Lanzar el escuchador:
-app.listen(port, () => {
-    console.log(`Server ON: http://localhost:${port}`);
+//* conectar mongoose a mongodb, en la ruta de la base de datos.
+mongoose.connect(
+	`mongodb+srv://shymu1234:${process.env.SECRET_KEY}@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority`,(err) =>{
+    try{
+        if(err){
+            throw err;
+        }else{
+            console.log("Connection to Database OK!");
+        }
+    }catch(error){
+        console.error("Error connecting to Database!");
+    }
 });
 
+//*Lanzar el escuchador:
+app.listen(`${process.env.SERVER}`, (req, res) => {
+	console.log("Server runs OK");
+});
 
 
 
