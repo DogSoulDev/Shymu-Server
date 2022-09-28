@@ -13,7 +13,7 @@ const app = require('./app');
 
 //*Conecta Nodejs con Mongodb usando mongoose(javascript library).
 mongoose.connect(
-  `mongodb+srv://shymu1234:${process.env.SECRET_KEY}@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority`,
+  `${process.env.DB}`,
   (err, req) => {
     try {
       if (err) {
