@@ -5,45 +5,22 @@ const playlistSchema = new mongoose.Schema(
 		name: {
 			type: String,
 			trim: true,
-		},
-		collaborative: {
-			type: Boolean,
-			default: false,
+			//*trim (string method that is used to remove whitespace characters from the start and end of a string.)
 		},
 		description: {
 			type: String,
 			trim: true,
 		},
-		thumbnail: {
+		cover: {
 			type: String,
 			trim: true,
-		},
-		primaryColor: {
-			type: String,
-			trim: true,
-		},
-		publicAccessible: {
-			type: Boolean,
-			default: false,
-		},
-		numberSongs: {
-			type: Number,
-			default: 0,
-		},
-		followers: {
-			type: Number,
-			default: 0,
-		},
-		rating: {
-			type: Number,
-			default: 1,
-			maxCount: 5,
 		},
 		userId: {
 			type: String,
 			trim: true,
 			ref: "users",
 		},
+		//*Revisas tracks
 		tracks: [
 			{
 				trackId: { type: String, ref: "tracks" },
