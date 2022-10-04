@@ -17,9 +17,7 @@ app.use(cors());
 //* Hay que conectarse en mongodb compass con esta dirección que tenemos en mongoose. connect.
 //*Ahora mongoose lo conectamos desde mongodb atlas con la opcion 'connect your application'.
 //*Creo una base de datos en mongodb compass y le pongo el nombre en la dirección de abajo, en este caso es 'ShymuDB'.
-mongoose.connect(
-	`mongodb+srv://shymu1234:${process.env.SECRET_KEY}@cluster0.oauhhpa.mongodb.net/ShymuDB?retryWrites=true&w=majority`,
-);
+mongoose.connect(`${process.env.DB_MONGODB}`);
 
 //! Creamos este puente que establece la conexión entre nuestro Font y nuestra base de datos:
 //!Resquest y Response, 'req'= nos pide la informacin desde el front y 'res'= nos trae la informacion de la base de datos.
@@ -70,7 +68,7 @@ app.post("/createUser", async (req, res) => {
 // 	}
 // });
 
-//! Ponemos el puerto 3001 del servidor, porque React usara el 3000.
-app.listen(`${process.env.SERVER}`, (req, res) => {
+//! Ponemos el puerto 3001 porque React usara el 3000.
+app.listen(`${process.env.PORT}`, (req, res) => {
 	console.log("Server runs OK");
 });
