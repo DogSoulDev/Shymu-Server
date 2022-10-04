@@ -1,6 +1,8 @@
 const dotenv = require("dotenv");
-const logger = require("loglevel");
 
+//!Preguntar si me lo puedo importar de dos maneras.
+const logger = require('../services/logger/logger')
+const logger = require("logger");
 logger.enableAll();
 dotenv.config();
 
@@ -49,7 +51,12 @@ const CONFIG = {
 			client_id: FB_CLIENT_ID,
 			auth_uri: FB_AUTH_URI,
 			token_uri: FB_TOKEN_URI,
-		}
+		},
+		cloudinary: {
+      key: CLOUDINARY_API_KEY,
+      secret: CLOUDINARY_API_SECRET,
+      name: CLOUDINARY_NAME,
+    },
 	},
 };
 

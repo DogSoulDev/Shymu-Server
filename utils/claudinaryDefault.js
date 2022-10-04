@@ -1,5 +1,5 @@
-const DEFAULT_PROFILE_IMAGE = "link imagen";
-const DEFAULT_PLAYLIST_THUMBNAIL = "link imagen";
+const DEFAULT_PROFILE_IMAGE = "Image";
+const DEFAULT_PLAYLIST_THUMBNAIL = "Link Image";
 
 module.exports = {
 	DEFAULT_PROFILE_IMAGE: DEFAULT_PROFILE_IMAGE,
