@@ -1,4 +1,4 @@
-// const { GenreRepo } = require("../repositories");
+const { GenreAction } = require("../db/dbActions/genreActions");
 
 async function getGenres(req, res, next) {
 	try {
