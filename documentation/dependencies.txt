@@ -1,0 +1,63 @@
+///  .babelrc  ///
+
+.babelrc is a File-relative configuration.
+Babel is a free and open-source JavaScript transcompiler that is mainly used to convert ECMAScript 2015+ (ES6+) code into backwards-compatible JavaScript code that can be run by older JavaScript engines.
+https://babeljs.io/docs/en/config-files
+File-relative configuration
+Babel loads .babelrc.json files, or an equivalent one using the supported extensions, by searching up the directory structure starting from the "filename" being compiled (limited by the caveats below). This can be powerful because it allows you to create independent configurations for subsections of a package. File-relative configurations are also merged over top of project-wide config values, making them potentially useful for specific overrides, though that can also be accomplished through "overrides".
+
+There are a few edge cases to consider when using a file-relative config:
+
+Searching will stop once a directory containing a package.json is found, so a relative config only applies within a single package.
+The "filename" being compiled must be inside of "babelrcRoots" packages, or else searching will be skipped entirely.
+These caveats mean that:
+
+.babelrc.json files only apply to files within their own package
+.babelrc.json files in packages that aren't Babel's 'root' are ignored unless you opt in with "babelrcRoots".
+See the monorepo documentation for more discussion on how to configure monorepos that have many packages. File-relative configs can also be disabled by setting "babelrc" to false.
+
+
+/// .prettierrc  ///
+
+A .prettierrc file written in JSON or YAML.
+The configuration file will be resolved starting from the location of the file being formatted, and searching up the file tree until a config file is (or isn’t) found.
+
+Prettier intentionally doesn’t support any kind of global configuration. This is to make sure that when a project is copied to another computer, Prettier’s behavior stays the same. Otherwise, Prettier wouldn’t be able to guarantee that everybody in a team gets the same consistent results.
+
+The options you can use in the configuration file are the same as the https://prettier.io/docs/en/options.html
+
+
+
+"dependencies": {
+    "bcrypt": "^5.0.1",  ==> https://www.npmjs.com/package/bcrypt  (A library to help you hash passwords.)
+    "body-parser": "^1.20.0",  ==> https://www.npmjs.com/package/body-parser  (Node.js body parsing middleware.Parse incoming request bodies in a middleware before your handlers, available under the req.body property.)
+    "cloudinary": "^1.32.0",  ==> https://cloudinary.com/documentation/node_integration  (Cloudinary's Node.js SDK provides simple, yet comprehensive image and video upload, transformation, optimization, and delivery capabilities that you can implement using code that integrates seamlessly with your existing Node.js application.)
+    "cors": "^2.8.5",  ==> https://www.npmjs.com/package/cors  (CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options.)
+    "dotenv": "^16.0.2",  ==> https://www.npmjs.com/package/dotenv?ref=hackernoon.com  (Dotenv is a zero-dependency module that loads environment variables from a .env file into process.env. Storing configuration in the environment separate from code is based on The Twelve-Factor App methodology.)
+    "express": "^4.18.1",  ==> https://expressjs.com/  //  https://www.npmjs.com/package/express   (Small, robust tooling for HTTP servers, making it a great solution for single page applications, websites, hybrids, or public HTTP APIs.)
+    "express-jwt": "^7.7.5",  ==> https://www.npmjs.com/package/express-jwt  (This module provides Express middleware for validating JWTs (JSON Web Tokens) through the jsonwebtoken module. The decoded JWT payload is available on the request object.)
+    "express-session": "^1.17.3",  ==> https://www.npmjs.com/package/express-session  (CookieEncoder Encoding, decoding cookie value, can be used for signing. Default implementation passes value untouched in both sides.CookieHandler Gets, sets cookie with given options IdGenerator Generates unique session ID Default implementation uses uid-safe package .SessionStore Store for session data)
+    "express-validator": "^6.14.2",   ==> https://express-validator.github.io/docs/  (express-validator is a set of express.js middlewares that wraps validator.js validator and sanitizer functions.)
+    "firebase": "^9.10.0",  ==> https://www.npmjs.com/package/firebase  (Firebase provides the tools and infrastructure you need to develop, grow, and earn money from your app. This package supports web (browser), mobile-web, and server (Node.js) clients.)
+    "firebase-admin": "^11.0.1",  ==> https://firebase.google.com/docs/admin/setup  (The Admin SDK is a set of server libraries that lets you interact with Firebase from privileged environments to perform actions like:.Read and write Realtime Database data with full admin privileges.Programmatically send Firebase Cloud Messaging messages using a simple, alternative approach to the Firebase Cloud Messaging server protocols.Generate and verify Firebase auth tokens.Access Google Cloud resources like Cloud Storage buckets and Cloud Firestore databases associated with your Firebase projects.Create your own simplified admin console to do things like look up user data or change a user's email address for authentication)
+    "helmet": "^6.0.0",  ==>  https://www.npmjs.com/package/helmet  (Helmet helps you secure your Express apps by setting various HTTP headers.)
+    "json-server": "^0.17.0",  ==> https://www.npmjs.com/package/json-server  (JSON Server is a Node Module that you can use to create demo rest json webservice in less than a minute. All you need is a JSON file for sample data.)
+    "jsonwebtoken": "^8.5.1",  ==> https://jwt.io/  (JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object)
+    "loglevel": "^1.8.0",  ==> https://www.npmjs.com/package/loglevel  //  https://docs.npmjs.com/cli/v8/using-npm/logging  (The npm CLI has various mechanisms for showing different levels of information back to end-users for certain commands, configurations & environments.)
+    "mongodb": "^4.10.0",  ==> https://www.mongodb.com/  //  https://www.npmjs.com/package/mongodb  (The official MongoDB driver for Node.js.)
+    "mongoose": "^6.6.1",  ==> https://mongoosejs.com/  //  https://www.npmjs.com/package/mongoose  (Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment. Mongoose supports both promises and callbacks.)
+    "morgan": "^1.10.0",  ==> https://www.npmjs.com/package/morgan  //  https://www.digitalocean.com/community/tutorials/nodejs-getting-started-morgan  (HTTP request logger middleware for node.js)
+    "multer": "^1.4.5-lts.1",  ==> https://www.npmjs.com/package/multer  //  https://blog.logrocket.com/multer-nodejs-express-upload-file/  (Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.)
+    "node-fetch": "^3.2.10",  ==> https://www.npmjs.com/package/node-fetch  (A light-weight module that brings Fetch API to Node.js.)
+    "normalize-url": "^7.2.0",  ==> https://www.npmjs.com/package/normalize-url  (Useful when you need to display, store, deduplicate, sort, compare, etc, URLs.)
+    "validator": "^13.7.0"  ==> https://www.npmjs.com/package/validator (This library validates and sanitizes strings only.)
+}
+    ....................................
+
+
+    "devDependencies": {
+    "@babel/core": "^7.19.3",  ==> https://www.npmjs.com/package/@babel/core  //  https://babeljs.io/docs/en/babel-core  (Babel is a toolchain that is mainly used to convert ECMAScript 2015+ code into a backwards compatible version of JavaScript in current and older browsers or environments.)
+    "@babel/node": "^7.19.1",  ==> https://www.npmjs.com/package/@babel/node  //  https://babeljs.io/docs/en/babel-node  (babel-node is a CLI that works exactly the same as the Node.js CLI, with the added benefit of compiling with Babel presets and plugins before running it.)
+    "@babel/preset-env": "^7.19.3",  ==> https://www.npmjs.com/package/@babel/preset-env  //  https://babeljs.io/docs/en/babel-preset-env  (@babel/preset-env is a smart preset that allows you to use the latest JavaScript without needing to micromanage which syntax transforms (and optionally, browser polyfills) are needed by your target environment(s))
+    "nodemon": "^2.0.20"  ==>  https://nodemon.io/ (nodemon is a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected.)
+}

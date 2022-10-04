@@ -18,7 +18,7 @@ async function uploadTrack(req, res, next) {
       req.files.thumbnail[0].path,
       {
         resource_type: 'image',
-        folder: 'tracks-thumbnails-dev',
+        folder: 'tracks-cover-dev',
       }
     );
 
