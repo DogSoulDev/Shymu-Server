@@ -1,5 +1,6 @@
 // const mongoose = require("mongoose");
 
+<<<<<<< HEAD:models/Playlist.js
 // const playlistSchema = new mongoose.Schema(
 // 	{
 // 		name: {
@@ -56,6 +57,41 @@
 // 		timestamps: true,
 // 	},
 // );
+=======
+const playlistSchema = new mongoose.Schema(
+	{
+		name: {
+			type: String,
+			trim: true,
+			//*trim (string method that is used to remove whitespace characters from the start and end of a string.)
+		},
+		description: {
+			type: String,
+			trim: true,
+		},
+		cover: {
+			type: String,
+			trim: true,
+		},
+		userId: {
+			type: String,
+			trim: true,
+			ref: "users",
+		},
+		//*Revisas tracks
+		tracks: [
+			{
+				trackId: { type: String, ref: "tracks" },
+				order: { type: Number, default: 0 },
+			},
+		],
+		followedBy: [{ type: String }],
+	},
+	{
+		timestamps: true,
+	},
+);
+>>>>>>> models:models/playlistModel.js
 
 // const Playlist = mongoose.model("playlist", playlistSchema);
 
