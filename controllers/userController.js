@@ -1,4 +1,8 @@
-const { UserAction, TrackAction, PlaylistAction } = require('../db/dbActions/index');
+const {
+  UserAction,
+  TrackAction,
+  PlaylistAction,
+} = require('../db/dbActions/index');
 const db = require('../models');
 
 const { cloudinary } = require('../config/cloudinary');
@@ -146,7 +150,10 @@ async function getUser(req, res, next) {
 
 async function getAllUsers(req, res, next) {
   try {
-    const users = await UserRepo.find({}, { _id: 1, userName: 1, profilePicture: 1 });
+    const users = await UserRepo.find(
+      {},
+      { _id: 1, userName: 1, profilePicture: 1 }
+    );
 
     if (users.error) {
       return res.status(400).send({ error: 'Error loading users' });
@@ -220,12 +227,10 @@ async function getUserPlaylist(req, res, next) {
     }
 
     if (track.data) {
-      return res
-        .status(200)
-        .send({
-          success: 'Loading user playlists succeed',
-          data: followPropTracks,
-        });
+      return res.status(200).send({
+        success: 'Loading user playlists succeed',
+        data: followPropTracks,
+      });
     }
     next();
   } catch (err) {

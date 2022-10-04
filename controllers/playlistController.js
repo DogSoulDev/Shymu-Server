@@ -1,5 +1,9 @@
 const db = require('../models');
-const { UserAction, PlaylistAction, TrackAction } = require('../db/dbActions/index');
+const {
+  UserAction,
+  PlaylistAction,
+  TrackAction,
+} = require('../db/dbActions/index');
 
 const mongoose = require('mongoose');
 

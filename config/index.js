@@ -1,5 +1,5 @@
 const { Configuration } = require('./config');
 
-module.exports = { 
-    config: Configuration,
-}
+module.exports = {
+  config: Configuration,
+};

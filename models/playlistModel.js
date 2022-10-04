@@ -1,6 +1,4 @@
 // const mongoose = require("mongoose");
-
-<<<<<<< HEAD:models/Playlist.js
 // const playlistSchema = new mongoose.Schema(
 // 	{
 // 		name: {
@@ -57,7 +55,6 @@
 // 		timestamps: true,
 // 	},
 // );
-=======
 const playlistSchema = new mongoose.Schema(
 	{
 		name: {
@@ -91,7 +88,7 @@ const playlistSchema = new mongoose.Schema(
 		timestamps: true,
 	},
 );
->>>>>>> models:models/playlistModel.js
+models:models/playlistModel.js
 
 // const Playlist = mongoose.model("playlist", playlistSchema);
 

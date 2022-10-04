@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //*Primer paso en verde.
 //?Puntos a tener en cuenta.
 //!Importante.
@@ -106,7 +105,6 @@ app.listen(`${process.env.PORT}`, (req, res) => {
 // app.listen(`${process.env.SERVER}`, (req, res) => {
 // 	console.log("Server runs OK");
 // });
-=======
 // require("dotenv").config();
 // require("express-async-errors");
 // const express = require("express");
@@ -124,4 +122,3 @@ app.listen(`${process.env.PORT}`, (req, res) => {
 
 // const port = process.env.PORT || 8080;
 // app.listen(port, () => console.log(`Listening on port ${port}...`));
->>>>>>> models

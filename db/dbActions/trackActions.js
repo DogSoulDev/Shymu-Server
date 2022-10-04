@@ -13,9 +13,7 @@ class TrackAction {
     );
   }
   findOne(filter, options) {
-    return standardization(
-      db.Track.findOne(filter, options).populate('genre')
-    );
+    return standardization(db.Track.findOne(filter, options).populate('genre'));
   }
   findByIdAndUpdate(filter, data, conditions) {
     return standardization(
