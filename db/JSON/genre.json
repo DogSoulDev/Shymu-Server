@@ -1,0 +1,42 @@
+[
+		{
+			"id": 1,
+			"name": "blues"
+		},
+		{
+			"id": 2,
+			"name": "chill-out"
+		},
+		{
+			"id": 3,
+			"name": "hip-hop"
+		},
+		{
+			"id": 4,
+			"name": "k-pop"
+		},
+		{
+			"id": 5,
+			"name": "merengue"
+		},
+		{
+			"id": 6,
+			"name": "metal"
+		},
+		{
+			"id": 7,
+			"name": "pop"
+		},
+		{
+			"id": 8,
+			"name": "regueton"
+		},
+		{
+			"id": 9,
+			"name": "rock"
+		},
+		{
+			"id": 10,
+			"name": "salsa"
+		}
+]
