@@ -1,9 +1,9 @@
-const MyRouter = require('express').Router();
+// const MyRouter = require('express').Router();
 
-const { trackController } = require('../controllers');
+// const { trackController } = require('../controllers');
 
-MyRouter.get('/tracks', trackController.getMyTracks);
+// MyRouter.get('/tracks', trackController.getMyTracks);
 
-MyRouter.get('/tracks/liked', trackController.getLikedMyTracks);
+// MyRouter.get('/tracks/liked', trackController.getLikedMyTracks);
 
-module.exports = MyRouter;
+// module.exports = MyRouter;

@@ -1,42 +1,42 @@
-//*Conecto express
-const TrackRouter = require('express').Router();
+// //*Conecto express
+// const TrackRouter = require('express').Router();
 
-//!Revisar Middleware
-const { authMiddleware } = require('../middleware');
+// //!Revisar Middleware
+// const { authMiddleware } = require('../middleware');
 
-//!Revisar el utils
-const { multerAudio, multerImage } = require('../utils/multer');
+// //!Revisar el utils
+// const { multerAudio, multerImage } = require('../utils/multer');
 
-//*Imprto Controller
-const { trackController } = require('../controllers');
+// //*Imprto Controller
+// const { trackController } = require('../controllers');
 
-TrackRouter.post(
-  '/',
+// TrackRouter.post(
+//   '/',
 
-  multerAudio.fields([
-    { name: 'track', maxCount: 1 },
-    { name: 'cover', maxCount: 1 },
-  ]),
-  trackController.uploadTrack
-);
-TrackRouter.patch(
-  '/:id',
-  multerImage.single('cover'),
-  trackController.editTrack
-);
+//   multerAudio.fields([
+//     { name: 'track', maxCount: 1 },
+//     { name: 'cover', maxCount: 1 },
+//   ]),
+//   trackController.uploadTrack
+// );
+// TrackRouter.patch(
+//   '/:id',
+//   multerImage.single('cover'),
+//   trackController.editTrack
+// );
 
-TrackRouter.get('/:id', trackController.getTrack);
+// TrackRouter.get('/:id', trackController.getTrack);
 
-TrackRouter.get(
-  '/:id/play',
-  multerImage.single('cover'),
-  trackController.playTrack
-);
+// TrackRouter.get(
+//   '/:id/play',
+//   multerImage.single('cover'),
+//   trackController.playTrack
+// );
 
-TrackRouter.put('/:id/like', trackController.likeTrack);
+// TrackRouter.put('/:id/like', trackController.likeTrack);
 
-TrackRouter.delete('/:id', trackController.deleteTrack);
+// TrackRouter.delete('/:id', trackController.deleteTrack);
 
-TrackRouter.get('/filter/:id', trackController.getTracksForPlaylist);
+// TrackRouter.get('/filter/:id', trackController.getTracksForPlaylist);
 
-module.exports = TrackRouter;
+// module.exports = TrackRouter;

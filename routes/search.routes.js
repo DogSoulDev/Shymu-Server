@@ -1,9 +1,9 @@
-//*Conectado a Express
-const searchRouter = require('express').Router();
+// //*Conectado a Express
+// const searchRouter = require('express').Router();
 
-//*Importo el Controller
-const { searchController } = require('../controllers');
+// //*Importo el Controller
+// const { searchController } = require('../controllers');
 
-searchRouter.get('/', searchController.searchTracks);
+// searchRouter.get('/', searchController.searchTracks);
 
-module.exports = searchRouter;
+// module.exports = searchRouter;
