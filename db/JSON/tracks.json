@@ -1,6 +1,5 @@
 [
 {
-      "id": 1,
       "title": "Boom Boom",
       "artist": "John Lee",
       "album": "Urban Blue",
@@ -9,7 +8,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664869035/Covers/URBAN%20BLUES/DALL_E_2022-10-04_09.34.55_-_urban_blue_album_cover_vuauuv.png"
     },
     {
-      "id": 2,
       "title": "Father Up The Road",
       "artist": "Bobby Blue Bland",
       "album": "I Pitty The Fool:The Duke Recordings,Vol.One",
@@ -18,7 +16,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664869751/Covers/URBAN%20BLUES/DALL_E_2022-10-04_09.48.41_-_I_Pitty_The_Fool_The_Duke_Recordings_Vol.One_album_cover_t1gpmj.png"
     },
     {
-      "id": 3,
       "title": "Further Up The Road",
       "artist": "Johnny Cash",
       "album": "American V: A Hundred Highways",
@@ -27,7 +24,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664869940/Covers/URBAN%20BLUES/DALL_E_2022-10-04_09.52.11_-_American_V_A_Hundred_Highways_album_cover_mqvvpt.png"
     },
     {
-      "id": 4,
       "title": "Gunsmoke Blues",
       "artist": "Buddy Guy, Jason Isbell",
       "album": "Gunsmoke Blues (feat. Jason Isbell)",
@@ -36,7 +32,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664870185/Covers/URBAN%20BLUES/DALL_E_2022-10-04_09.56.16_-_Gunsmoke_Blues_album_cover_i2tih8.png"
     },
     {
-      "id": 5,
       "title": "I Got The Blues",
       "artist": "Sam Myers",
       "album": "Coming From The Old School",
@@ -45,7 +40,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664870492/Covers/URBAN%20BLUES/DALL_E_2022-10-04_10.01.12_-_old_style_blues_and_whiskey_vintage_album_cover_d2l7im.png"
     },
     {
-      "id": 6,
       "title": "Mannish Boy",
       "artist": "Muddy Waters",
       "album": "King of The Electric Blues",
@@ -54,7 +48,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664870773/Covers/URBAN%20BLUES/DALL_E_2022-10-04_10.06.02_-_King_of_The_Electric_Blues_vintage_album_cover_cagfpi.png"
     },
     {
-      "id": 7,
       "title": "Money Is The Name Of The Game",
       "artist": "Buster Benton",
       "album": "Blues & Trouble",
@@ -63,7 +56,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664870945/Covers/URBAN%20BLUES/DALL_E_2022-10-04_10.08.52_-_monry_is_the_name_of_the_game_vintage_blues_album_cover_sn5hbx.png"
     },
     {
-      "id": 8,
       "title": "On The Road Again",
       "artist": "Willie Nelson",
       "album": "Willie Nelson The Collection",
@@ -72,7 +64,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664871237/Covers/URBAN%20BLUES/DALL_E_2022-10-04_10.13.49_-_on_the_road_again_willie_nelson_album_cover_bb9xt7.png"
     },
     {
-      "id": 9,
       "title": "Pinetops Boogie",
       "artist": "Muddy Waters",
       "album": "King of The Electric Blues",
@@ -81,7 +72,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664870773/Covers/URBAN%20BLUES/DALL_E_2022-10-04_10.06.02_-_King_of_The_Electric_Blues_vintage_album_cover_cagfpi.png"
     },
     {
-      "id": 10,
       "title": "Pinetops Boogie",
       "artist": "West Coast Blues",
       "album": "Incredible Jazz Guitar",
@@ -90,7 +80,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664871465/Covers/URBAN%20BLUES/DALL_E_2022-10-04_10.17.39_-_incredible_jazz_guitar_album_cover_amp3om.png"
     },
     {
-      "id": 11,
       "title": "Before the Sun Sets",
       "artist": "Nimus",
       "album": "Single: Before the Sun Sets ",
@@ -99,7 +88,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664871709/Covers/CHILL-OUT/DALL_E_2022-10-04_10.21.41_u0pppl.png"
     },
     {
-      "id": 12,
       "title": "Come Down",
       "artist": "LDVC",
       "album": "Single: Come Down ",
@@ -108,7 +96,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664871947/Covers/CHILL-OUT/DALL_E_2022-10-04_10.25.38_-_snowy_mountain_with_a_clear_sunset_behind_albun_cover_xai066.png"
     },
     {
-      "id": 13,
       "title": "Downtown",
       "artist": "LDVC",
       "album": "Single: Downtown ",
@@ -117,7 +104,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664872131/Covers/CHILL-OUT/DALL_E_2022-10-04_10.28.41_-_chill_sea_with_chill_out_wrote_in_the_front_album_cover_tno59x.png"
     },
     {
-      "id": 14,
       "title": "Midnight",
       "artist": "Nimus",
       "album": "Single: Midnight ",
@@ -126,7 +112,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664872256/Covers/CHILL-OUT/DALL_E_2022-10-04_10.30.50_ocpqye.png"
     },
     {
-      "id": 15,
       "title": "Ocean",
       "artist": "Nimus",
       "album": "Single: Ocean ",
@@ -135,7 +120,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664872342/Covers/CHILL-OUT/DALL_E_2022-10-04_10.32.15_-_ocean_with_chill_out_wrote_in_the_front_album_cover_yqpkf7.png"
     },
     {
-      "id": 16,
       "title": "Sunrider",
       "artist": "Nimus",
       "album": "Single: Sunrider ",
@@ -144,7 +128,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664872500/Covers/CHILL-OUT/DALL_E_2022-10-04_10.34.45_-_sun_rider_chill_out_jqvyym.png"
     },
     {
-      "id": 17,
       "title": "The Sun",
       "artist": "LDVC",
       "album": "Single: The Sun ",
@@ -153,7 +136,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664872619/Covers/CHILL-OUT/DALL_E_2022-10-04_10.36.53_-_the_sun_in_the_space_whole_view_agiscq.png"
     },
     {
-      "id": 18,
       "title": "Thinking About You",
       "artist": "LDVC",
       "album": "Single: Thinking About You ",
@@ -162,7 +144,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664872711/Covers/CHILL-OUT/DALL_E_2022-10-04_10.38.23_-_Thinking_About_You_in_a_album_cover_vintage_wvtptq.png"
     },
     {
-      "id": 19,
       "title": "Though the Fire",
       "artist": "Nimbus",
       "album": "Single: Though the Fire ",
@@ -171,7 +152,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664872815/Covers/CHILL-OUT/DALL_E_2022-10-04_10.40.06_-_man_walking_Though_the_Fire_in_a_epic_way_in_the_night_mramdm.png"
     },
     {
-      "id": 20,
       "title": "Wont Let Go",
       "artist": "Nimbus",
       "album": "Single: Wont Let Go ",
@@ -180,7 +160,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664873017/Covers/CHILL-OUT/DALL_E_2022-10-04_10.43.31_-_man_and_a_women_wont_let_go_in_the_air_style_one_line_dwawing_nxwzll.png"
     },
     {
-      "id": 21,
       "title": "Ambitionz az a Ridah",
       "artist": "2 Pac",
       "album": "Ambitionz az a Ridah (remix) ",
@@ -189,7 +168,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664873287/Covers/HIP-HOP/DALL_E_2022-10-04_10.47.48_-_2_pac_Ambitionz_az_a_Ridah_album_cover_rccmea.png"
     },
     {
-      "id": 22,
       "title": "Black and Yellow",
       "artist": "Wiz Khalifa, Juicy J, Snoop Dogg, T-Pain",
       "album": "Single: Black and Yellow",
@@ -198,7 +176,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664874813/Covers/HIP-HOP/DALL_E_2022-10-04_11.13.21_-_black_and_yellow_album_cover_giytf6.png"
     },
     {
-      "id": 23,
       "title": "Como Sea",
       "artist": "Eladio Carrion, Arcangel",
       "album": "Sauce Boyz 2",
@@ -207,7 +184,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664874964/Covers/HIP-HOP/DALL_E_2022-10-04_11.15.54_-_sauce_boyz_2_album_cover_ooeziz.png"
     },
     {
-      "id": 24,
       "title": "Es Epico",
       "artist": "Canserbero",
       "album": "Muerte",
@@ -216,7 +192,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664875277/Covers/HIP-HOP/DALL_E_2022-10-04_11.21.02_-_cerberus_in_hell_cover_album_drzqwq.png"
     },
     {
-      "id": 25,
       "title": "Get Money",
       "artist": "The Notorius B.I.G.",
       "album": "Greatest Hits",
@@ -225,7 +200,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664875464/Covers/HIP-HOP/DALL_E_2022-10-04_11.24.16_-_the_notorius_big_album_cover_x9zzij.png"
     },
     {
-      "id": 26,
       "title": "God's Plan",
       "artist": "Drake",
       "album": "Scorpion",
@@ -234,7 +208,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664875633/Covers/HIP-HOP/DALL_E_2022-10-04_11.27.00_-_god_making_his_plan_album_cover_grbxyz.png"
     },
     {
-      "id": 27,
       "title": "Many Men",
       "artist": "50 cent",
       "album": "Get Rich or Die Tryin'",
@@ -243,7 +216,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664875822/Covers/HIP-HOP/DALL_E_2022-10-04_11.30.11_-_get_rich_or_die_tryin_ilustration_yp1ojl.png"
     },
     {
-      "id": 28,
       "title": "Tu no Vive Asi",
       "artist": "Arcangel, Bad Bunny",
       "album": "Single: Tu no Vive Asi'",
@@ -252,7 +224,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664876100/Covers/HIP-HOP/DALL_E_2022-10-04_11.34.53_-_Bad_bunny_cartoon_style_album_cover_pddrpy.png"
     },
     {
-      "id": 29,
       "title": "With out Me",
       "artist": "Eminem",
       "album": "The Eminem Show",
@@ -261,7 +232,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664876356/Covers/HIP-HOP/DALL_E_2022-10-04_11.39.06_ggvdiv.png"
     },
     {
-      "id": 30,
       "title": "Ni**as In Paris",
       "artist": "Jay-Z, Kanye West",
       "album": "Watch The Throne",
@@ -270,7 +240,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664876505/Covers/HIP-HOP/DALL_E_2022-10-04_11.41.36_-_Ni_as_In_Paris_watch_the_trhone_ymp26q.png"
     },
     {
-      "id": 31,
       "title": "Fire",
       "artist": "BTS",
       "album": "The most Beautiful Moment in Life",
@@ -279,7 +248,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664877326/Covers/K-POP/DALL_E_2022-10-04_11.55.10_-_fire_k_pop_style_album_cover_lxjoet.png"
     },
     {
-      "id": 32,
       "title": "Death Note",
       "artist": "Opening",
       "album": "Anime Openings",
@@ -288,7 +256,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664878507/Covers/K-POP/224981331_4225115407604458_8361237492675130294_n_ur0syu.jpg"
     },
     {
-      "id": 33,
       "title": "Flashback",
       "artist": "MIYAVI",
       "album": "Samurai Sessions",
@@ -297,7 +264,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664878740/Covers/K-POP/240896866_4346124622170202_6686545854877628513_n_d869ik.jpg"
     },
     {
-      "id": 34,
       "title": "Gangnam Style",
       "artist": "PSY",
       "album": "Single: Gangnam Style",
@@ -306,7 +272,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664879088/Covers/K-POP/166856114_4162649367184396_2965440303447013072_n_arl11b.jpg"
     },
     {
-      "id": 35,
       "title": "Mixed Nuts",
       "artist": "Hige Dandism",
       "album": "Single: Mixed Nuts",
@@ -315,7 +280,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664879433/Covers/K-POP/209095111_4137280026387997_7990632706815110289_n_wb12c0.jpg"
     },
     {
-      "id": 36,
       "title": "Infermo",
       "artist": "Mrs. Green Apple",
       "album": "Single: Inferno",
@@ -324,7 +288,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664879672/Covers/K-POP/78131205_2616428938473121_3362139500691062784_n_dmyafl.png"
     },
     {
-      "id": 37,
       "title": "Netsujou No Spectrum",
       "artist": "Nanatsu no Taizai",
       "album": "Single: Netsujou No Spectrum",
@@ -333,7 +296,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664879823/Covers/K-POP/32634537_1696030027179688_6775747565880082432_n_af6cig.jpg"
     },
     {
-      "id": 38,
       "title": "Sign",
       "artist": "Flow",
       "album": "MICROCOSM",
@@ -342,7 +304,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664879967/Covers/K-POP/48419975_2006337059482315_3250094352378101760_n_pcncgg.png"
     },
     {
-      "id": 39,
       "title": "The Day",
       "artist": "Miura Jam",
       "album": "Single: The Day",
@@ -351,7 +312,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664880165/Covers/K-POP/90880748_2873199822796030_4713194576876142592_n_tbzzjp.jpg"
     },
     {
-      "id": 40,
       "title": "Veil",
       "artist": "Keyna Suda",
       "album": "Fire Force",
@@ -360,7 +320,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664880302/Covers/K-POP/75636127_2573377226111626_3665826252960301056_n_kcqtpc.png"
     },
     {
-      "id": 41,
       "title": "A Dormir Juntitos",
       "artist": "Eddy Herrera",
       "album": "Paso Firme",
@@ -369,7 +328,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664897833/Covers/MERENGUE/DALL_E_2022-10-04_17.37.04_-_a_dormir_juntitos_album_cover_quyyls.png"
     },
     {
-      "id": 42,
       "title": "El Chico del Apartamento 512",
       "artist": "Selena",
       "album": "Amor Prohibido",
@@ -378,7 +336,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664897992/Covers/MERENGUE/DALL_E_2022-10-04_17.39.45_-_amor_prohibido_selena_album_cover_qfnkh6.png"
     },
     {
-      "id": 43,
       "title": "El Niagara en Bicicleta",
       "artist": "Juan Luis Guerra",
       "album": "Ni es lo Mismo ni es Igual",
@@ -387,7 +344,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664898145/Covers/MERENGUE/DALL_E_2022-10-04_17.42.17_-_niagara_en_bicicleta_album_cover_gamhzk.png"
     },
     {
-      "id": 44,
       "title": "La Bilirrubina",
       "artist": "Juan Luis Guerra",
       "album": "Bachata Rosa",
@@ -396,7 +352,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664898287/Covers/MERENGUE/DALL_E_2022-10-04_17.44.34_-_la_bilirrubina_album_cover_vbwa4t.png"
     },
     {
-      "id": 45,
       "title": "La Vaca",
       "artist": "Mala fe",
       "album": "Con su Loquera",
@@ -405,7 +360,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664898398/Covers/MERENGUE/DALL_E_2022-10-04_17.46.31_-_la_vaca_merengue_album_cover_vcpsfv.png"
     },
     {
-      "id": 46,
       "title": "Mi Mujer me Gobierna",
       "artist": "La Banda Gorda",
       "album": "Exitos Durisimos",
@@ -414,7 +368,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664898554/Covers/MERENGUE/DALL_E_2022-10-04_17.49.03_-_mi_mujer_me_gobierna_album_cover_yxp5ex.png"
     },
     {
-      "id": 47,
       "title": "Patacon Pisao",
       "artist": "Juan Carlos Coronel",
       "album": "Bodas de Oro",
@@ -423,7 +376,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664898707/Covers/MERENGUE/DALL_E_2022-10-04_17.51.40_-_patacon_pisao_album_cover_eb4ill.png"
     },
     {
-      "id": 48,
       "title": "Procura",
       "artist": "Chichi Peralta",
       "album": "Pa' Otro La'O",
@@ -432,7 +384,6 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664898838/Covers/MERENGUE/DALL_E_2022-10-04_17.53.52_-_merengue_album_cover_r4weag.png"
     },
     {
-      "id": 49,
       "title": "El Tiburon",
       "artist": "Projecto Uno",
       "album": "In da House",
@@ -441,11 +392,10 @@
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664899041/Covers/MERENGUE/DALL_E_2022-10-04_17.57.13_-_el_tiburon_album_cover_pyfyuc.png"
     },
     {
-      "id": "50",
       "title": "Suavemente",
       "artist": "Elvis Crespo",
       "album": "Suavemente",
-      "genreId": "5",
+      "genreId": 5,
       "url": "https://res.cloudinary.com/dkp5xa3sw/video/upload/v1664810781/Music/MERENGUE%20%285%29/suavemente_m0w68n.mp3",
       "cover": "https://res.cloudinary.com/dkp5xa3sw/image/upload/v1664899159/Covers/MERENGUE/DALL_E_2022-10-04_17.59.11_-_suavemente_album_cover_n5pa5m.png"
     }
