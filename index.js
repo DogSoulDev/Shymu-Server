@@ -1,26 +1,13 @@
-const express = require("express");
-const app = express();
-const cors = require('cors');
-const server = require('./server')
+const { app } = require("./server");
+const { config } = require("./config");
+const { connect } = require("./db/connect");
 
+if (!config.app.port) {
+  throw new Error("App config is invalid");
+}
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-
-
-
-
-//*routes
-app.get('/', (req,res)=>{
-  res.send('Welcome Javier to this great API!')
-})
-
-
-
-app.listen(`${process.env.DB_PORT}`, (req, res) => {
-  console.log('Server runs OK');
+connect().then(() => {
+  app.listen(config.app.port, () => {
+    console.log(`Server listening on ${config.app.port}`);
+  });
 });
-
-module.exports = app;
