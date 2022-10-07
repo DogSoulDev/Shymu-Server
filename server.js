@@ -1,6 +1,3 @@
-//*Primer paso en verde.
-//?Puntos a tener en cuenta.
-//!Importante.
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -12,13 +9,9 @@ mongoose.connect(`${process.env.DB_MONGODB}`, (err, req) => {
     if (err) {
       throw err;
     } else {
-      console.log('Connection to Database OK!');
+      console.log('Connection to Mongodb OK!');
     }
   } catch (error) {
-    console.error('Error connecting to Database!');
+    console.error('Error connecting to Mongodb!');
   }
-});
-
-app.listen(`${process.env.DB_PORT}`, (req, res) => {
-  console.log('Server runs OK');
 });

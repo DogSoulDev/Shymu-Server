@@ -7,6 +7,33 @@
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "contributors": [
+    {
+      "name": "Javier Fernández",
+      "email": "dogsouldev@gmail.com",
+      "url": "https://github.com/DogSoulDev"
+    },
+    {
+      "name": "Ricardo Vieira Rava",
+      "email": "vieiraraba@gmail.com",
+      "url": "https://github.com/vieiraraba"
+    },
+    {
+      "name": "Alejandro Gaerste",
+      "email": "alejandrogaerste411@gmail.com",
+      "url": "https://github.com/Gaerste"
+    },
+    {
+      "name": "Adria Valles Bardad",
+      "email": "adriavallesbaradad@gmail.com",
+      "url": "https://github.com/adriavallesbaradad"
+    },
+    {
+      "name": "Marcel Barreiro",
+      "email": "marcelbarreiro@gmail.com",
+      "url": "https://github.com/marcelbbarreiro"
+    }
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC",
