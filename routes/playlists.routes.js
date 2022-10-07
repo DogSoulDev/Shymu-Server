@@ -1,15 +1,15 @@
-const Router = require('express').Router();
+const Router = require('express').Router;
 const PlaylistsRouter = Router();
 const { multerAudio, multerImage } = require('../utils/multer');
-const { authMiddleware } = require('../middleware');
+const { errorMiddleware, authMiddleware } = require('../middleware');
 const { playlistsController } = require('../controllers');
 
 PlaylistsRouter.post(
-  '/',
+  '/playlist',
   multerImage.single('thumbnail'),
   playlistsController.createPlaylist
 );
-PlaylistsRouter.get('/', authMiddleware, playlistsController.getAllPlaylists);
+PlaylistsRouter.get('/playlists', authMiddleware, playlistsController.getAllPlaylists);
 PlaylistsRouter.get(
   '/public',
   authMiddleware,

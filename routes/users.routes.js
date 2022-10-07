@@ -1,4 +1,4 @@
-const Router = require('express').Router();
+const Router = require('express').Router;
 const UsersRouter = Router();
 const { usersController } = require('../controllers');
 const { authMiddleware } = require('../middleware');
@@ -12,10 +12,7 @@ UsersRouter.post(
   usersController.updateAvatar
 );
 UsersRouter.patch('/update', authMiddleware, usersController.updateUser);
-
 UsersRouter.get('/:id', authMiddleware, usersController.getUser);
-UsersRouter.get('/', authMiddleware, usersController.getAllUsers);
-
 UsersRouter.get('/:id/tracks', authMiddleware, usersController.getUserTracks);
 UsersRouter.get(
   '/:id/playlist',

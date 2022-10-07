@@ -12,6 +12,7 @@ const {
   FB_TOKEN_URI,
   FB_AUTH_PROVIDER_X509_CERT_URL,
   FB_CLIENT_X509_CERT_URL,
+  FB_DATABASE_URL,
 } = process.env;
 
 const firebaseCertConfig = {
@@ -28,7 +29,7 @@ const firebaseCertConfig = {
 };
 
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
+  credential: admin.credential.cert(firebaseCertConfig),
   databaseURL: FB_DATABASE_URL
 });
 const auth = admin.auth();

@@ -1,7 +1,8 @@
-const Router = require('express').Router();
-const SearchRouter = Router();
-const { searchController } = require('../controllers');
+// const Router = require('express').Router;
+// const SearchRouter = Router();
+// const { errorMiddleware, authMiddleware } = require('../middleware');
+// const { searchController } = require('../controllers');
 
-SearchRouter.get('/', searchController.searchTracks());
+// SearchRouter.get('/', authMiddleware, searchController.searchTracks());
 
-module.exports = SearchRouter;
+// module.exports = SearchRouter;

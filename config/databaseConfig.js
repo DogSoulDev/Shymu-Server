@@ -4,6 +4,7 @@ logger.enableAll();
 dotenv.config();
 
 const {
+  CLIENT_URL,
   DB_MONGODB,
   DB_PORT = 3002,
   DB_ALTERNATIVE_PORT,
@@ -28,7 +29,7 @@ const config = {
       port: DB_PORT || DB_ALTERNATIVE_PORT,
     },
     client: {
-      url: process.env.CLIENT_URL || 'http://localhost:3000',
+      url: CLIENT_URL || 'http://localhost:3000',
     },
     logger: {
       warn: logger.warn,

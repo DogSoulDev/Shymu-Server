@@ -24,7 +24,7 @@ async function signUp(req, res, next) {
           profilePicture: foundUser.data.profilePicture,
           auth_provider: provider,
         },
-        success: 'User logged',
+        success: 'User logged!',
       });
     }
 
