@@ -7,7 +7,7 @@ class PlaybackRepo {
   }
 
   findOne(query) {
-    return normalizeDBQuery(db.Playback.findOne(query, '-__v'));
+    return normalizeDBQuery(db.Playback.findOne(query, ''));
   }
 }
 

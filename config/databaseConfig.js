@@ -1,8 +1,9 @@
-require("dotenv").config();
+const dotenv = require('dotenv');
+dotenv.config();
 
 const {
   DB_MONGODB,
-  DB_PORT = 3001,
+  DB_PORT = 3002,
   DB_ALTERNATIVE_PORT,
   FB_TYPE,
   FB_PROJECT_ID,
@@ -25,7 +26,7 @@ const config = {
       port: DB_PORT || DB_ALTERNATIVE_PORT,
     },
     client: {
-      url: process.env.CLIENT_URL || "http://localhost:3000",
+      url: process.env.CLIENT_URL || 'http://localhost:3000',
     },
     db: {
       url: DB_MONGODB,
@@ -51,5 +52,5 @@ const config = {
 };
 
 module.exports = {
-  config: config,
+  config,
 };

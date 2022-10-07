@@ -1,13 +1,15 @@
-const { app } = require('./server');
-const { config } = require('./config');
-const { connect } = require('./db/connect');
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+dotenv.config();
 
-if (!config.app.port) {
-  throw new Error('App config is invalid');
-}
-
-connect().then(() => {
-  app.listen(DB_MONGODB, () => {
-    console.log(`Server listening on ${DB_PORT}`);
-  });
+mongoose.connect(`${process.env.DB_MONGODB}`, (err, req) => {
+  try {
+    if (err) {
+      throw err;
+    } else {
+      console.log('Connection to Database OK!');
+    }
+  } catch (error) {
+    console.error('Error connecting to Database!');
+  }
 });

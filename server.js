@@ -6,6 +6,8 @@ const cors = require('cors');
 const { errorMiddleware } = require('./middleware');
 const { config } = require('./config');
 
+const app = express();
+
 const {
   UsersRouter,
   TracksRouter,
@@ -13,8 +15,6 @@ const {
   GenreRouter,
   // SearchRouter,
 } = require('./routes');
-
-const app = express();
 
 app.use(morgan('dev'));
 app.use(helmet());
@@ -34,7 +34,7 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use('/users', UsersRouter);
 app.use('/tracks', TracksRouter);
 app.use('/genre', GenreRouter);
-app.use('/playlist', PlaylistsRouter);
+app.use('/playlists', PlaylistsRouter);
 // app.use('/search', SearchRouter);
 
 app.get('/', (req, res) => {
@@ -44,6 +44,10 @@ app.get('/', (req, res) => {
 });
 
 app.use(errorMiddleware);
+
+app.listen(`${process.env.DB_PORT}`, (req, res) => {
+  console.log('Server runs OK');
+});
 
 module.exports = {
   app: app,

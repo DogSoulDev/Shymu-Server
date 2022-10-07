@@ -1,6 +1,7 @@
-// const searchRouter = require('express').Router();
-// const { searchController } = require('../controllers');
+const Router = require('express').Router();
+const SearchRouter = Router();
+const { searchController } = require('../controllers');
 
-// searchRouter.get('/', searchController.searchTracks());
+SearchRouter.get('/', searchController.searchTracks());
 
-// module.exports = searchRouter;
+module.exports = SearchRouter;

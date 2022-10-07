@@ -1,7 +1,7 @@
 const { logger } = require('../services/logger');
 
 function errorMiddleware(err, req, res, next) {
-  logger.debug('Error detected with Middleware! ');
+  logger.debug('Error detected try again later! ');
   logger.error(err);
 
   if (req.headersSent) {
@@ -9,7 +9,7 @@ function errorMiddleware(err, req, res, next) {
   }
 
   res.status(500).send({
-    message: 'Try again later!',
+    message: 'Error, please try again later!',
   });
 }
 

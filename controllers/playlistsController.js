@@ -1,6 +1,6 @@
 const db = require('../models');
 const { UsersRepo, PlaylistsRepo, TracksRepo } = require('../repositories');
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
 const { cloudinary } = require('../services/cloudinary/index');
 

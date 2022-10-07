@@ -13,5 +13,5 @@ mongoose.connect(`${config.DB_MONGODB}`, (err, req) => {
   }
 });
 module.exports = {
-  connect: connect,
+  connect,
 };

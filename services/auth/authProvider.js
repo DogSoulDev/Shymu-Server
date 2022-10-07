@@ -1,5 +1,6 @@
 const admin = require('firebase-admin');
 
+
 const {
   FB_TYPE,
   FB_PROJECT_ID,
@@ -27,9 +28,9 @@ const firebaseCertConfig = {
 };
 
 admin.initializeApp({
-  credential: admin.credential.cert(firebaseCertConfig),
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: FB_DATABASE_URL
 });
-
 const auth = admin.auth();
 
 function verifyIdToken(token) {

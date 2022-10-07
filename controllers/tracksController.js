@@ -1,7 +1,8 @@
-const { TracksRepo } = require('../repositories');
 const db = require('../models');
+const { TracksRepo } = require('../repositories');
 const { cloudinary } = require('../services/cloudinary/index');
 const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
+
 
 async function uploadTrack(req, res, next) {
   const { name, genre } = req.body;

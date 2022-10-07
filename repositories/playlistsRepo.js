@@ -7,15 +7,15 @@ class PlaylistsRepo {
   }
 
   find(query) {
-    return normalizeDBQuery(db.Playlists.find(query, '-__v'));
+    return normalizeDBQuery(db.Playlists.find(query, ''));
   }
 
   findOne(query) {
-    return normalizeDBQuery(db.Playlists.findOne(query, '-__v'));
+    return normalizeDBQuery(db.Playlists.findOne(query, ''));
   }
 
   findById(id) {
-    return normalizeDBQuery(db.Playlists.findById(id, '-__v'));
+    return normalizeDBQuery(db.Playlists.findById(id, ''));
   }
 }
 

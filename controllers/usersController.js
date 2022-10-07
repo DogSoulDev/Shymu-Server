@@ -1,7 +1,8 @@
-const { UsersRepo, TracksRepo, PlaylistsRepo } = require('../repositories');
 const db = require('../models');
+const { UsersRepo, TracksRepo, PlaylistsRepo } = require('../repositories');
 const { cloudinary } = require('../services/cloudinary/index');
 const { DEFAULT_PROFILE_IMAGE } = require('../services/cloudinary/defaults');
+
 
 async function signUp(req, res, next) {
   const { email, _id, provider } = req.user;

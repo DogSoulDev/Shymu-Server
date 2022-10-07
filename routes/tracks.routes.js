@@ -1,4 +1,5 @@
-const TracksRouter = require('express').Router();
+const Router = require('express').Router();
+const TracksRouter = Router();
 const { authMiddleware } = require('../middleware');
 const { multerAudio, multerImage } = require('../utils/multer');
 const { tracksController } = require('../controllers');
@@ -13,17 +14,23 @@ TracksRouter.post(
 );
 TracksRouter.patch(
   '/:id',
+  authMiddleware,
   multerImage.single('thumbnail'),
   tracksController.editTrack
 );
-TracksRouter.get('/:id', tracksController.getTrack);
+TracksRouter.get('/:id', authMiddleware, tracksController.getTrack);
 TracksRouter.get(
   '/:id/play',
+  authMiddleware,
   multerImage.single('thumbnail'),
   tracksController.playTrack
 );
-TracksRouter.put('/:id/like', tracksController.likeTrack);
-TracksRouter.delete('/:id', tracksController.deleteTrack);
-TracksRouter.get('/filter/:id', tracksController.getTracksForPlaylist);
+TracksRouter.put('/:id/like', authMiddleware, tracksController.likeTrack);
+TracksRouter.delete('/:id', authMiddleware, tracksController.deleteTrack);
+TracksRouter.get(
+  '/filter/:id',
+  authMiddleware,
+  tracksController.getTracksForPlaylist
+);
 
 module.exports = TracksRouter;

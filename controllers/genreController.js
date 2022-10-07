@@ -1,3 +1,4 @@
+const db = require('../models');
 const { GenreRepo } = require('../repositories');
 
 async function getGenres(req, res, next) {

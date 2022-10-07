@@ -1,6 +1,6 @@
-const Router = require('express').Router;
-const { usersController } = require('../controllers');
+const Router = require('express').Router();
 const UsersRouter = Router();
+const { usersController } = require('../controllers');
 const { authMiddleware } = require('../middleware');
 const { multerImage } = require('../utils/multer');
 
@@ -11,12 +11,16 @@ UsersRouter.post(
   multerImage.single('profilePicture'),
   usersController.updateAvatar
 );
-UsersRouter.patch('/update', usersController.updateUser);
+UsersRouter.patch('/update', authMiddleware, usersController.updateUser);
 
-UsersRouter.get('/:id', usersController.getUser);
-UsersRouter.get('/', usersController.getAllUsers);
+UsersRouter.get('/:id', authMiddleware, usersController.getUser);
+UsersRouter.get('/', authMiddleware, usersController.getAllUsers);
 
-UsersRouter.get('/:id/tracks', usersController.getUserTracks);
-UsersRouter.get('/:id/playlist', usersController.getUserPlaylist);
+UsersRouter.get('/:id/tracks', authMiddleware, usersController.getUserTracks);
+UsersRouter.get(
+  '/:id/playlist',
+  authMiddleware,
+  usersController.getUserPlaylist
+);
 
 module.exports = UsersRouter;

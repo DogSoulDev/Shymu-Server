@@ -7,7 +7,7 @@ class UsersRepo {
   }
 
   findOne(query) {
-    return normalizeDBQuery(db.Users.findOne(query, '-__v'));
+    return normalizeDBQuery(db.Users.findOne(query, ''));
   }
 }
 
