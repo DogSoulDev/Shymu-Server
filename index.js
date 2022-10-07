@@ -1,5 +1,5 @@
 const { app } = require("./server");
-const { config } = require("./config");
+const { config } = require("./config/databaseConfig");
 const { connect } = require("./db/connect");
 
 if (!config.app.port) {

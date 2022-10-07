@@ -38,13 +38,13 @@ const PlaylistSchema = Schema(
     },
     authorId: {
       type: Schema.Types.ObjectId,
-      ref: 'user',
+      ref: 'users',
     },
     tracks: {
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'track',
+          ref: 'tracks',
         },
       ],
       default: [],
@@ -53,7 +53,7 @@ const PlaylistSchema = Schema(
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'user',
+          ref: 'users',
         },
       ],
       default: [],
@@ -62,7 +62,7 @@ const PlaylistSchema = Schema(
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'user',
+          ref: 'users',
         },
       ],
       default: [],

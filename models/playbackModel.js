@@ -31,7 +31,7 @@ const PlaybackSchema = Schema(
         {
           trackId: {
             type: Schema.Types.ObjectId,
-            ref: 'track',
+            ref: 'tracks',
           },
           totalPlaybacks: {
             type: Number,
@@ -50,7 +50,7 @@ const PlaybackSchema = Schema(
                 },
                 userId: {
                   type: Schema.Types.ObjectId,
-                  ref: 'user',
+                  ref: 'users',
                 },
                 agent: {
                   type: String,

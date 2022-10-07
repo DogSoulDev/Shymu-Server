@@ -3,19 +3,19 @@ const normalizeDBQuery = require('../utils/normalizeDBQuery');
 
 class TracksRepo {
   create(options) {
-    return normalizeDBQuery(db.Track.create(options));
+    return normalizeDBQuery(db.Tracks.create(options));
   }
 
   find(query) {
-    return normalizeDBQuery(db.Track.find(query, '-__v'));
+    return normalizeDBQuery(db.Tracks.find(query, '-__v'));
   }
 
   findOne(query) {
-    return normalizeDBQuery(db.Track.findOne(query, '-__v'));
+    return normalizeDBQuery(db.Tracks.findOne(query, '-__v'));
   }
 
   findById(id) {
-    return normalizeDBQuery(db.Track.findById(id, '-__v'));
+    return normalizeDBQuery(db.Tracks.findById(id, '-__v'));
   }
 }
 

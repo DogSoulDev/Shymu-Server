@@ -16,7 +16,7 @@ const GenreSchema = Schema(
     tracks: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'track',
+        ref: 'tracks',
       },
     ],
   },

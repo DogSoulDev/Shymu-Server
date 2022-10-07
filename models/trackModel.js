@@ -36,13 +36,13 @@ const TrackSchema = Schema(
     },
     authorId: {
       type: Schema.Types.ObjectId,
-      ref: 'user',
+      ref: 'users',
     },
     artists: {
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'user',
+          ref: 'users',
         },
       ],
       default: [],
@@ -51,7 +51,7 @@ const TrackSchema = Schema(
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'playlist',
+          ref: 'playlists',
         },
       ],
       default: [],
@@ -60,7 +60,7 @@ const TrackSchema = Schema(
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'user',
+          ref: 'users',
         },
       ],
       default: [],
