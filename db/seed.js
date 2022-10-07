@@ -1,37 +1,37 @@
 const mongoose = require('mongoose');
 const db = require('../models');
 
-const { getBaseTracks } = require('./tracks');
-const { getBasePlaylists } = require('./playlists');
-const { getBaseGenres } = require('./genre');
-const { getBaseUsers } = require('./users');
+const { getDbTracks } = require('./tracks');
+const { getDbPlaylists } = require('./playlists');
+const { getDbGenres } = require('./genre');
+const { getDbUsers } = require('./users');
 
 async function seedUsers() {
-  const results = getBaseUsers();
+  const results = getDbUsers();
 
-  await db.User.deleteMany({});
-  await db.User.create([...results]);
+  await db.Users.deleteMany({});
+  await db.Users.create([...results]);
 }
 
 async function seedTracks() {
-  const results = await getBaseTracks();
+  const results = await getDbTracks();
 
-  await db.Track.deleteMany({});
-  await db.Track.create([...results]);
+  await db.Tracks.deleteMany({});
+  await db.Tracks.create([...results]);
 }
 
-async function seedPlaylist() {
-  const results = await getBasePlaylists();
+async function seedPlaylists() {
+  const results = await getDbPlaylists();
 
-  await db.Playlist.deleteMany({});
-  await db.Playlist.create([...results]);
+  await db.Playlists.deleteMany({});
+  await db.Playlists.create([...results]);
 }
 
 async function seedGenres() {
-  const results = getBaseGenres();
+  const results = getDbGenres();
 
   await db.Genre.deleteMany({});
   await db.Genre.create([...results]);
 }
 
-module.exports = { seedTracks, seedPlaylist, seedGenres, seedUsers };
+module.exports = { seedTracks, seedPlaylists, seedGenres, seedUsers };

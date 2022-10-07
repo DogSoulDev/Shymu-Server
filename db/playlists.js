@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 const db = require('../models');
 
-async function getBasePlaylists() {
-  let userId = await db.User.find({}, { _id: 1 }).lean();
-  let trackId = await db.Track.find({}, { _id: 1 }).lean();
+async function getDbPlaylists() {
+  let userId = await db.Users.find({}, { _id: 1 }).lean();
+  let trackId = await db.Tracks.find({}, { _id: 1 }).lean();
 
   let tracks = [];
 
@@ -15,7 +15,7 @@ async function getBasePlaylists() {
   }
 
   // take only the id of the tracks
-  const tracksIds = tracks.map((track) => track.map((t) => t._id));
+  const tracksIds = tracks.map((track) => tracks.map((t) => t._id));
 
   // divide the tracks in five arrays and return in strings
   let playlist1 = tracksIds.slice(0, 1);
@@ -36,7 +36,7 @@ async function getBasePlaylists() {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Road trip! All the masters I need!',
       // return a list of tracks in an object and its order in a separate object
-      tracks: playlist1[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist1[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -50,7 +50,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Motorcycle Mama!',
-      tracks: playlist2[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist2[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -63,7 +63,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Chillout with the beats',
-      tracks: playlist3[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist3[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -77,7 +77,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Boogie with the beats',
-      tracks: playlist4[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist4[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -91,7 +91,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Smile. You are beautiful',
-      tracks: playlist5[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist5[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -104,7 +104,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Staying home',
-      tracks: playlist6[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist6[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -117,7 +117,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Space hits!',
-      tracks: playlist7[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist7[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -131,7 +131,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Hits for the weekend',
-      tracks: playlist8[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist8[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -144,7 +144,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Party time',
-      tracks: playlist9[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist9[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -157,7 +157,7 @@ async function getBasePlaylists() {
     {
       userId: userId[Math.ceil(Math.random() * userId.length) - 1]._id,
       name: 'Glitter',
-      tracks: playlist10[0].map((track) => ({ trackId: track, order: order })),
+      tracks: playlist10[0].map((track) => ({ trackId: tracks, order: order })),
       followedBy: userId,
       isFollowed: true,
       thumbnail:
@@ -170,4 +170,4 @@ async function getBasePlaylists() {
   ];
 }
 
-module.exports = { getBasePlaylists };
+module.exports = { getDbPlaylists };

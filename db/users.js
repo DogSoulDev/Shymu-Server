@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-function squadAhmed() {
+function getDbUsers() {
   return [
     {
       _id: '1',
@@ -67,4 +67,4 @@ function squadAhmed() {
   ];
 }
 
-module.exports = { squadAhmed };
+module.exports = { getDbUsers };

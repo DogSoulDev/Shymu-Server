@@ -4,7 +4,7 @@ const { UserRepo } = require('../../repositories');
 //*req.user = { email: userLoginInfo.email, uid: userLoginInfo.uid }
 //*req.signOut = auth.signOut
 
-async function login(req = {}, userLoginInfo = {}) {
+async function signUp(req = {}, userLoginInfo = {}) {
   const { email, uid } = userLoginInfo;
 
   if (typeof email !== 'string' || typeof uid !== 'string') {
@@ -28,5 +28,5 @@ async function login(req = {}, userLoginInfo = {}) {
 }
 
 module.exports = {
-  login: login,
+  signUp: signUp,
 };

@@ -1,11 +1,11 @@
 const { verifyAuthToken } = require('./verifyAuthToken');
 const { getAuthToken } = require('./getAuthToken');
-const { login } = require('./login');
+const { signUp } = require('./signUp');
 const { signOut } = require('./signOut');
 
 module.exports = {
   verifyAuthToken: verifyAuthToken,
   getAuthToken: getAuthToken,
-  login: login,
+  signUp: signUp,
   signOut: signOut,
 };

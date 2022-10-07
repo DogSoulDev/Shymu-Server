@@ -1,5 +1,5 @@
 require("dotenv").config();
-const logger = require('loggerInfo');
+const logger = require('loglevel');
 
 logger.enableAll();
 dotenv.config();

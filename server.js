@@ -5,7 +5,7 @@ const { json } = require("body-parser");
 const cors = require("cors");
 
 const { config } = require("./config/databaseConfig");
-const { errorMiddleware } = require("./middleware");
+const { errorMiddleware } = require("./middleware/errorMiddleware");
 
 const {
   usersRouter,
@@ -14,7 +14,6 @@ const {
   genreRouter,
   searchRouter,
 } = require("./routes");
-const { errorMiddleware } = require('./middleware/errorMiddleware');
 const app = express();
 
 app.use(morgan("dev"));

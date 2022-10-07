@@ -2,7 +2,7 @@ const db = require("../models");
 const mongoose = require("mongoose");
 
 async function getBaseTracks() {
-	let userId = await db.User.find({}, { _id: 1 }).lean();
+	let userId = await db.Users.find({}, { _id: 1 }).lean();
 	let genreId = await db.Genre.find({}, { _id: 1 }).lean();
 	return [
 		{

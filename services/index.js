@@ -1,9 +1,9 @@
-const logger = require('./logger/logger');
-const auth = require('./auth/index');
-const { cloudinary } = require('./cloudinary/cloudinary');
+const logger = require('./logger');
+const auth = require('./autt');
+const cloudinary = require('./cloudinary');
 
 module.exports = {
-  logger: logger,
-  auth: auth,
+  logger,
+  auth,
   cloudinary,
 };

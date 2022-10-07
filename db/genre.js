@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const db = require('../models');
 
-function getBaseGenres() {
+function getDbGenres() {
   return [
     {
       _id: '1',
@@ -46,4 +46,4 @@ function getBaseGenres() {
   ];
 }
 
-module.exports = { getBaseGenres };
+module.exports = { getDbGenres };
