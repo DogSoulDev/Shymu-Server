@@ -1,4 +1,4 @@
-const { logger } = require('../services');
+const { logger } = require('../services/logger');
 
 function errorMiddleware(err, req, res, next) {
   logger.debug('Error detected with Middleware! ');

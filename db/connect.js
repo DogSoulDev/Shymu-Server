@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-const { config } = require('../config')
+const { config } = require('../config');
 
 mongoose.connect(`${config.DB_MONGODB}`, (err, req) => {
   try {
@@ -13,3 +12,6 @@ mongoose.connect(`${config.DB_MONGODB}`, (err, req) => {
     console.error('Error connecting to Mongodb!');
   }
 });
+module.exports = {
+  connect: connect,
+};

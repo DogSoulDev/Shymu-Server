@@ -1,5 +1,5 @@
-const { config } = require('../../config/databaseConfig');
-const cloudinary = require('cloudinary');
+const { config } = require('../../config');
+var cloudinary = require('cloudinary').v2;
 
 cloudinary.config({
   cloud_name: config.development.cloudinary.name,

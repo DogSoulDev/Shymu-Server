@@ -6,4 +6,4 @@ function getPublicId(url) {
   return publicId;
 }
 
-module.exports = { getId };
+module.exports = { getPublicId };

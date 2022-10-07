@@ -1,8 +1,8 @@
 const db = require('../models');
 const { UsersRepo, PlaylistsRepo, TracksRepo } = require('../repositories');
 const mongoose = require('mongoose')
-const { getPublicId } = require('../utils/cloudinaryUtils');
-const { cloudinary } = require('../services/cloudinary');
+const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
+const { cloudinary } = require('../services/cloudinary/index');
 
 async function createPlaylist(req, res, next) {
   try {
