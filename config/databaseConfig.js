@@ -1,4 +1,6 @@
 const dotenv = require('dotenv');
+const logger = require('loglevel');
+logger.enableAll();
 dotenv.config();
 
 const {
@@ -27,6 +29,13 @@ const config = {
     },
     client: {
       url: process.env.CLIENT_URL || 'http://localhost:3000',
+    },
+    logger: {
+      warn: logger.warn,
+      info: logger.info,
+      error: logger.error,
+      trace: logger.trace,
+      debug: logger.debug,
     },
     db: {
       url: DB_MONGODB,
