@@ -5,7 +5,7 @@ const { json } = require("body-parser");
 const cors = require("cors");
 
 const { config } = require("./config");
-const { errorMiddleware } = require("./middlewares");
+const { errorMiddleware } = require("./middleware");
 const {
   userRouter,
   trackRouter,
@@ -31,7 +31,7 @@ app.use(genreRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send({
-    data: "hello-world",
+    data: "The request has succeeded!",
   });
 });
 

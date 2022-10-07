@@ -1,95 +1,78 @@
-// const mongoose = require("mongoose");
-// const playlistSchema = new mongoose.Schema(
-// 	{
-// 		name: {
-// 			type: String,
-// 			trim: true,
-// 		},
-// 		collaborative: {
-// 			type: Boolean,
-// 			default: false,
-// 		},
-// 		description: {
-// 			type: String,
-// 			trim: true,
-// 		},
-// 		thumbnail: {
-// 			type: String,
-// 			trim: true,
-// 		},
-// 		primaryColor: {
-// 			type: String,
-// 			trim: true,
-// 		},
-// 		publicAccessible: {
-// 			type: Boolean,
-// 			default: false,
-// 		},
-// 		numberSongs: {
-// 			type: Number,
-// 			default: 0,
-// 		},
-// 		followers: {
-// 			type: Number,
-// 			default: 0,
-// 		},
-// 		rating: {
-// 			type: Number,
-// 			default: 1,
-// 			maxCount: 5,
-// 		},
-// 		userId: {
-// 			type: String,
-// 			trim: true,
-// 			ref: "users",
-// 		},
-// 		tracks: [
-// 			{
-// 				trackId: { type: String, ref: "tracks" },
-// 				order: { type: Number, default: 0 },
-// 			},
-// 		],
-// 		followedBy: [{ type: String }],
-// 	},
-// 	{
-// 		timestamps: true,
-// 	},
-// );
-const playlistSchema = new mongoose.Schema(
-	{
-		name: {
-			type: String,
-			trim: true,
-			//*trim (string method that is used to remove whitespace characters from the start and end of a string.)
-		},
-		description: {
-			type: String,
-			trim: true,
-		},
-		cover: {
-			type: String,
-			trim: true,
-		},
-		userId: {
-			type: String,
-			trim: true,
-			ref: "users",
-		},
-		//*Revisas tracks
-		tracks: [
-			{
-				trackId: { type: String, ref: "tracks" },
-				order: { type: Number, default: 0 },
-			},
-		],
-		followedBy: [{ type: String }],
-	},
-	{
-		timestamps: true,
-	},
+const mongoose = require('mongoose');
+const { Schema } = require('mongoose');
+
+const PlaylistSchema = Schema(
+  {
+    name: {
+      type: String,
+      required: [true, 'Playlist name is required!'],
+      trim: true,
+    },
+    description: {
+      type: String,
+      required: false,
+    },
+    collaborative: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    thumbnail: {
+      type: String,
+      trim: true,
+      required: false,
+    },
+    publicAccessible: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    numberSongs: {
+      type: Number,
+      default: 0,
+    },
+    rating: {
+      type: Number,
+      required: false,
+      default: 0.0,
+    },
+    authorId: {
+      type: Schema.Types.ObjectId,
+      ref: 'user',
+    },
+    tracks: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'track',
+        },
+      ],
+      default: [],
+    },
+    followedBy: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'user',
+        },
+      ],
+      default: [],
+    },
+    collaborators: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'user',
+        },
+      ],
+      default: [],
+    },
+  },
+  {
+    timestamps: true,
+  }
 );
-models:models/playlistModel.js
 
-// const Playlist = mongoose.model("playlist", playlistSchema);
+const Playlist = mongoose.model('playlists', PlaylistSchema);
 
-// module.exports = Playlist;
+module.exports = Playlist;

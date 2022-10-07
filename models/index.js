@@ -1,12 +1,15 @@
-// //*We create the Schema for each Model sams in Database.
-// const UserModel = require('./userModel');
-// const TrackModel = require('./trackModel');
-// const GenreModel = require('./genreModel');
-// const PlaylistModel = require('./playlistModel');
+const UserModel = require('./userModel');
+const TrackModel = require('./trackModel');
+const PlaylistModel = require('./playlistModel');
+const PlaybackModel = require('./playbackModel');
+const GenreModel = require('./genreModel');
+const DefaultModel = require('./defaultModel');
 
-// module.exports = {
-//   User: UserModel,
-//   Track: TrackModel,
-//   Genre: GenreModel,
-//   Playlist: PlaylistModel,
-// };
+module.exports = {
+  Users: UserModel,
+  Tracks: TrackModel,
+  Playlists: PlaylistModel,
+  Playback: PlaybackModel,
+  Genre: GenreModel,
+  DefaultReq: DefaultModel,
+};
