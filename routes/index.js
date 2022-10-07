@@ -1,11 +1,13 @@
-const { usersRouter } = require("./user-routes");
-const { tracksRouter } = require("./track-routes");
-const { playlistsRouter } = require("./playlist-route");
-const { genreRouter } = require("./genre-routes");
+const { UsersRouter } = require('./users.routes');
+const { TracksRouter } = require('./tracks.routes');
+const { PlaylistsRouter } = require('./playlists.routes');
+const { GenreRouter } = require('./genre.routes');
+const { MyRouter } = require('/');
 
 module.exports = {
-  userRouter: usersRouter,
-  trackRouter: tracksRouter,
-  playlistRouter: playlistsRouter,
-  genreRouter: genreRouter,
+  UsersRouter,
+  TracksRouter,
+  PlaylistsRouter,
+  GenreRouter,
+  MyRouter,
 };

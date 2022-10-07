@@ -1,13 +1,9 @@
-// //*Conectado a express.
-// const GenreRouter = require('express').Router();
+const GenreRouter = require('express').Router();
 
-// //*Pasa por el Middleware
-// const { authMiddleware } = require('../middleware');
+const { authMiddleware } = require('../middleware');
+const { genreController } = require('../controllers');
 
-// //*Enruta el Controller.
-// const { genreController } = require('../controllers');
+GenreRouter.get('/', authMiddleware, genreController.getGenres);
+GenreRouter.post('/', authMiddleware, genreController.createGenre);
 
-// GenreRouter.get('/', genreController.getGenres);
-// GenreRouter.post('/', genreController.createGenre);
-
-// module.exports = GenreRouter;
+module.exports = GenreRouter;

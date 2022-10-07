@@ -1,9 +1,7 @@
 const MyRouter = require('express').Router();
+const { tracksController } = require('../controllers');
 
-const { trackController } = require('../controllers');
-
-MyRouter.get('/tracks', trackController.getMyTracks);
-
-MyRouter.get('/tracks/liked', trackController.getLikedMyTracks);
+MyRouter.get('/tracks', tracksController.getMyTracks);
+MyRouter.get('/tracks/liked', tracksController.getLikedTracks);
 
 module.exports = MyRouter;

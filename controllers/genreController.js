@@ -1,69 +1,41 @@
 const { GenreRepo } = require('../repositories');
-const { handleDbResponse } = require('../repositories/utilsRepo');
 
-async function createGenre(req, res, next) {
-  const {
-    body: { name },
-  } = req;
-
+async function getGenres(req, res, next) {
   try {
-    if (!name) {
-      return res.status(400).send({
-        data: null,
-        error: 'Bad request',
-      });
+    const genres = await GenreRepo.find();
+
+    if (genres.error)
+      return res.status(400).send({ error: 'Error loading genres' });
+
+    if (genres.data) {
+      return res
+        .status(200)
+        .send({ success: 'Genres loaded', data: genres.data });
     }
 
-    const dbResponse = await GenreRepo.create({
-      name: name,
+    next();
+  } catch (err) {
+    next(err);
+  }
+}
+
+async function createGenre(req, res, next) {
+  try {
+    const newGenre = await GenreRepo.create({
+      _id: req.body._id,
+      name: req.body.genre,
     });
+    if (newGenre.error)
+      return res.status(400).send({ error: 'Error creating genre' });
 
-    handleDbResponse(res, dbResponse);
+    if (newGenre.data) {
+      return res.status(200).send({ success: 'Genres loaded' });
+    }
+
+    next();
   } catch (err) {
     next(err);
   }
 }
 
-async function fetchGenres(req, res, next) {
-  const { params } = req;
-
-  try {
-    const dbResponse = await GenreRepo.find(params);
-    handleDbResponse(res, dbResponse);
-  } catch (err) {
-    next(err);
-  }
-}
-
-async function fetchGenreById(req, res, next) {
-  const {
-    params: { id },
-  } = req;
-  try {
-    const dbResponse = await GenreRepo.findById(id);
-    handleDbResponse(res, dbResponse);
-  } catch (err) {
-    next(err);
-  }
-}
-
-async function fetchGenreByName(req, res, next) {
-  const {
-    params: { name },
-  } = req;
-  try {
-    const dbResponse = await GenreRepo.findOne({
-      name: name,
-    });
-    handleDbResponse(res, dbResponse);
-  } catch (err) {
-    next(err);
-  }
-}
-
-module.exports = {
-  createGenre: createGenre,
-  fetchGenres: fetchGenres,
-  fetchGenreById: fetchGenreById,
-  fetchGenreByName: fetchGenreByName,
-};
+module.exports = { getGenres, createGenre };

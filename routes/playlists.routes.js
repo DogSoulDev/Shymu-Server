@@ -1,25 +1,45 @@
 const PlaylistsRouter = require('express').Router();
 const { multerAudio, multerImage } = require('../utils/multer');
 const { authMiddleware } = require('../middleware');
-const { playlistController } = require('../controllers');
+const { playlistsController } = require('../controllers');
 
 PlaylistsRouter.post(
-  '/createPlaylist',
+  '/',
   multerImage.single('thumbnail'),
-  playlistController.createPlaylist
+  playlistsController.createPlaylist
 );
-
-PlaylistsRouter.get('/fetchPlaylists', playlistController.getAllPlaylists);
-PlaylistsRouter.get('/public', playlistController.getPublicPlaylists);
-PlaylistsRouter.patch('/:id', playlistController.addTrack);
-PlaylistsRouter.get('/fetchPlaylistById', playlistController.getPlaylistById);
-PlaylistsRouter.put('/:id/follow', playlistController.followPlaylist);
+PlaylistsRouter.get('/', authMiddleware, playlistsController.getAllPlaylists);
+PlaylistsRouter.get(
+  '/public',
+  authMiddleware,
+  playlistsController.getPublicPlaylists
+);
+PlaylistsRouter.patch('/:id', authMiddleware, playlistsController.addTrack);
+PlaylistsRouter.get(
+  '/:id',
+  authMiddleware,
+  playlistsController.getPlaylistById
+);
+PlaylistsRouter.put(
+  '/:id/follow',
+  authMiddleware,
+  playlistsController.followPlaylist
+);
 PlaylistsRouter.patch(
   '/update/:id',
+  authMiddleware,
   multerImage.single('thumbnail'),
-  playlistController.updatePlaylist
+  playlistsController.updatePlaylist
 );
-PlaylistsRouter.delete('/:id', playlistController.deletePlaylist);
-PlaylistsRouter.put('/order/:id', playlistController.orderTracks);
+PlaylistsRouter.delete(
+  '/:id',
+  authMiddleware,
+  playlistsController.deletePlaylist
+);
+PlaylistsRouter.put(
+  '/order/:id',
+  authMiddleware,
+  playlistsController.orderTracks
+);
 
 module.exports = PlaylistsRouter;

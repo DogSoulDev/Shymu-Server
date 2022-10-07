@@ -15,7 +15,7 @@ async function handleDbResponse(res, dbResponse) {
 
   return res.status(404).send({
     data: null,
-    error: 'Page not found!',
+    error: 'Not Found',
   });
 }
 
