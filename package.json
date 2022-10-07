@@ -2,10 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./index.js",
+    "dev": "nodemon --inspect --trace-warnings .index.js",
+    "test": "jest --env=node"
   },
   "contributors": [
     {
@@ -34,13 +35,26 @@
       "url": "https://github.com/marcelbbarreiro"
     }
   ],
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "urlServer": "https://github.com/DogSoulDev/Shymu-Server",
+    "urlClient":"https://github.com/DogSoulDev/Shymu-Client"
+  },
+  "type": "commonjs",
+  "keywords": [
+    "node.js"
+  ],
   "dependencies": {
+    "@types/jest": "^29.1.2",
+    "babel-eslint": "^10.1.0",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",
+    "eslint": "^8.24.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^27.1.1",
+    "eslint-plugin-node": "^11.1.0",
     "express": "^4.18.1",
     "express-jwt": "^7.7.5",
     "express-session": "^1.17.3",
@@ -48,16 +62,21 @@
     "firebase": "^9.10.0",
     "firebase-admin": "^11.0.1",
     "helmet": "^6.0.0",
+    "jest": "^29.1.2",
+    "jest-environment-node": "^29.1.2",
     "json-server": "^0.17.0",
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.21",
     "mongodb": "^4.10.0",
+    "mongodb-memory-server": "^8.9.3",
     "mongoose": "^6.6.1",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "node-fetch": "^3.2.10",
     "nodemon": "^2.0.20",
     "normalize-url": "^7.2.0",
+    "prettier": "^2.7.1",
+    "supertest": "^6.3.0",
     "validator": "^13.7.0"
   },
   "devDependencies": {

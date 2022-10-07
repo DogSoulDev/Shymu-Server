@@ -1,7 +1,8 @@
+const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 dotenv.config();
-const app = require('./app');
+const app = require('.');
 
 
 mongoose.connect(`${process.env.DB_MONGODB}`, (err, req) => {
