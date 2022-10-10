@@ -1,5 +1,5 @@
 const db = require('../models');
-const { UsersRepo, PlaylistsRepo, TracksRepo } = require('../repositories');
+const { UserRepo, PlaylistRepo, TrackRepo } = require('../repositories');
 const mongoose = require('mongoose');
 const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
 const { cloudinary } = require('../services/cloudinary/index');
@@ -19,7 +19,7 @@ async function createPlaylist(req, res, next) {
 
     const thumbnailPicture = await cloudinary.uploader.upload(thumbnail, {
       resource_type: 'image',
-      folder: 'tracks-thumbnails-dev',
+      folder: '',
     });
     playlistData.thumbnail = thumbnailPicture.secure_url;
 
@@ -38,13 +38,11 @@ async function createPlaylist(req, res, next) {
       ).exec();
 
       return res.status(201).send({
-        success: 'Playlist created successfully',
+        success: 'Playlist created!',
         data: playlists,
       });
     } else {
-      return res
-        .status(400)
-        .send({ error: 'The playlist has not been created, please try again' });
+      return res.status(400).send({ error: 'Please try again later!' });
     }
   } catch (error) {
     res.status(500).send({
@@ -57,7 +55,7 @@ async function createPlaylist(req, res, next) {
 async function followPlaylist(req, res, next) {
   try {
     const _id = req.headers._id;
-    const user = await UsersRepo.findOne({ userId: _id });
+    const user = await UserRepo.findOne({ userId: _id });
     if (user.error) {
       return res
         .status(400)
@@ -88,15 +86,13 @@ async function followPlaylist(req, res, next) {
           : false;
         res.status(200).send({
           success: followed
-            ? 'You have successfully followed the playlist'
-            : 'You have successfully unfollowed the playlist',
+            ? 'Successfully followed!'
+            : 'Successfully unfollowed!',
           data: { _id: _id, followed: followed },
         });
         return;
       } else {
-        return res
-          .status(400)
-          .send({ error: 'The playlist has not been found, please try again' });
+        return res.status(400).send({ error: 'Please try again later!' });
       }
     }
     next();
@@ -111,7 +107,7 @@ async function followPlaylist(req, res, next) {
 async function getAllPlaylists(req, res, next) {
   try {
     const _id = req.headers._id;
-    const user = await UsersRepo.findOne({ _id });
+    const user = await UserRepo.findOne({ _id });
     if (user.error) {
       return res
         .status(400)
@@ -199,7 +195,7 @@ async function getAllPlaylists(req, res, next) {
       }
     } else {
       return res.status(400).send({
-        error: 'The playlists have not been found, please try again',
+        error: 'Please try again later!',
       });
     }
     next();
@@ -216,16 +212,12 @@ async function addTrack(req, res, next) {
   const tracks = req.body.tracks;
 
   try {
-    const findPlaylist = await PlaylistsRepo.findOne({ _id: playListId });
-
+    const findPlaylist = await PlaylistRepo.findOne({ _id: playListId });
     const numSongs = findPlaylist.data.numberSongs;
-
-    const addedTrack = await PlaylistsRepo.findByIdAndUpdate(
+    const addedTrack = await PlaylistRepo.findByIdAndUpdate(
       playListId,
       {
         $inc: { numberSongs: tracks.length },
-        // $push: { tracks: { trackId: tracks[0],order:11 } },
-
         $push: {
           tracks: tracks.map((track, idx) => {
             return {
@@ -235,7 +227,6 @@ async function addTrack(req, res, next) {
           }),
         },
       },
-      // { $inc: { order: 1 } },
       {
         new: true,
       }
@@ -260,11 +251,9 @@ async function addTrack(req, res, next) {
 async function getPublicPlaylists(req, res, next) {
   try {
     const _id = req.headers._id;
-    const user = await UsersRepo.findOne({ _id });
+    const user = await UserRepo.findOne({ _id });
     if (user.error) {
-      return res
-        .status(400)
-        .send({ error: 'The user has not been found, please try again' });
+      return res.status(400).send({ error: 'Please try again later!' });
     }
     if (user.data) {
       const publicList = await db.Playlist.aggregate([
@@ -282,7 +271,7 @@ async function getPublicPlaylists(req, res, next) {
             followedBy: 1,
             isFollowed: {
               $cond: {
-                if: { $in: [_id, '$followedBy'] },
+                if: { $in: [_id, '$Followed!'] },
                 then: true,
                 else: false,
               },
@@ -298,7 +287,7 @@ async function getPublicPlaylists(req, res, next) {
 
       if (publicList.length > 0) {
         res.status(200).send({
-          success: 'Playlists found',
+          success: 'Found!',
           data: {
             publicList,
           },
@@ -306,7 +295,7 @@ async function getPublicPlaylists(req, res, next) {
         return;
       } else {
         return res.status(400).send({
-          error: 'The playlists have not been found, please try again',
+          error: 'Please try again later!',
         });
       }
     }
@@ -370,7 +359,7 @@ async function getPlaylistById(req, res, next) {
       const owned = playlistDetails.userId === _id ? true : false;
       // playlistDetails.owned = owned;
       res.status(200).send({
-        success: 'Playlist found',
+        success: 'Found!',
         data: {
           ...playlistDetails._doc,
           owned: owned,
@@ -379,9 +368,7 @@ async function getPlaylistById(req, res, next) {
       });
       return;
     } else {
-      return res
-        .status(400)
-        .send({ error: 'The playlist has not been found, please try again' });
+      return res.status(400).send({ error: 'Please try again later!' });
     }
 
     // next();
@@ -421,7 +408,7 @@ async function updatePlaylist(req, res, next) {
         });
         const uploadNewImage = await cloudinary.uploader.upload(req.file.path, {
           resource_type: 'image',
-          folder: 'tracks-thumbnails-dev',
+          folder: '',
         });
         playlistSchema.thumbnail = uploadNewImage.secure_url;
       }
@@ -434,7 +421,7 @@ async function updatePlaylist(req, res, next) {
     );
 
     res.status(200).send({
-      success: 'Playlist updated',
+      success: 'Playlist updated!',
       data: playlistSchema,
     });
     return;
@@ -461,14 +448,14 @@ async function deletePlaylist(req, res, next) {
     if (publicId) {
       await cloudinary.uploader.destroy(publicId, {
         resource_type: 'image',
-        folder: 'tracks-thumbnails-dev',
+        folder: '',
       });
     }
     const deletePlaylist = await db.Playlist.findOneAndDelete({
       _id: playlistId,
     });
     return res.status(200).send({
-      success: 'Playlist deleted',
+      success: 'Playlist deleted!',
       data: deletePlaylist.name,
     });
   } catch (error) {
@@ -484,7 +471,7 @@ async function orderTracks(req, res, next) {
 
   const { id } = req.params;
   try {
-    const playlist = await PlaylistsRepo.findOne({ _id: id });
+    const playlist = await PlaylistRepo.findOne({ _id: id });
 
     const oldOrder = playlist.data.tracks.find(
       (el) => el.trackId === track
@@ -516,7 +503,7 @@ async function orderTracks(req, res, next) {
       return { trackId: playlistTrack.trackId, order: playlistTrack.order };
     });
 
-    const updatedPlaylist = await PlaylistsRepo.findByIdAndUpdate(
+    const updatedPlaylist = await PlaylistRepo.findByIdAndUpdate(
       { _id: id },
       { tracks: orderedList },
       { new: true }
@@ -524,13 +511,13 @@ async function orderTracks(req, res, next) {
     if (updatedPlaylist.error) {
       return res
         .status(400)
-        .send({ error: 'The playlist could not be updated' });
+        .send({ error: 'Playlist could not be updated, try again later!' });
     }
 
     if (updatedPlaylist.data) {
       return res
         .status(200)
-        .send({ success: 'SUCCESS', data: updatedPlaylist.data.tracks });
+        .send({ success: 'Succes!', data: updatedPlaylist.data.tracks });
     }
 
     next();
