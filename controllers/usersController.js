@@ -3,7 +3,6 @@ const { UsersRepo, TracksRepo, PlaylistsRepo } = require('../repositories');
 const { cloudinary } = require('../services/cloudinary/index');
 const { DEFAULT_PROFILE_IMAGE } = require('../services/cloudinary/defaults');
 
-
 async function signUp(req, res, next) {
   const { email, _id, provider } = req.user;
   const userName = req.user.userName ? req.user.userName : req.body.userName;

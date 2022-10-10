@@ -74,6 +74,6 @@ const PlaybackSchema = Schema(
   }
 );
 
-const Playback = mongoose.model('playback', PlaybackSchema);
+const Playback = mongoose.model('playbacks', PlaybackSchema);
 
 module.exports = Playback;

@@ -10,7 +10,7 @@ const UserSchema = Schema(
     },
     firstName: {
       type: String,
-      trim: true,
+      trim: true, //!Removes whitespaces.
     },
     lastName: {
       type: String,
