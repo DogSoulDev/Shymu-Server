@@ -22,16 +22,33 @@ const UserSchema = Schema(
       trim: true,
       unique: true,
       validate: {
+        //*we use "validator" dependencie to make it faster.
         validator: (value) => isEmail(value),
         message: (props) => `The email ${props.value} is not valid!`,
       },
+    },
+    profilePicture: {
+      type: String,
+      ref: 'user',
+      trim: true,
+    },
+    gender: {
+      type: Schema.Types.ObjectId,
+      ref: 'gender',
+    },
+    genre: {
+      type: Schema.Types.ObjectId,
+      ref: 'genre',
     },
   },
   {
     timestamps: true,
   }
 );
+//*function getTimestampInSeconds () {
+//*   return Math.floor(Date.now() / 1000)
+//* }
 
-const Users = mongoose.model('users', UserSchema);
+const User = mongoose.model('user', UserSchema);
 
-module.exports = Users;
+module.exports = User;

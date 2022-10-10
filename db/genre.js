@@ -4,44 +4,34 @@ const db = require('../models');
 function getDbGenres() {
   return [
     {
-      _id: '1',
-      name: 'blues',
+      name: 'Blues',
     },
     {
-      _id: '2',
-      name: 'chill-out',
+      name: 'Chill-Out',
     },
     {
-      _id: '3',
-      name: 'hip-hop',
+      name: 'Hip-Hop',
     },
     {
-      _id: '4',
-      name: 'k-pop',
+      name: 'K-Pop',
     },
     {
-      _id: '5',
-      name: 'merengue',
+      name: 'Merengue',
     },
     {
-      _id: '6',
-      name: 'metal',
+      name: 'Metal',
     },
     {
-      _id: '7',
-      name: 'pop',
+      name: 'Pop',
     },
     {
-      _id: '8',
-      name: 'regueton',
+      name: 'Regueton',
     },
     {
-      _id: '9',
-      name: 'rock',
+      name: 'Rock',
     },
     {
-      _id: '10',
-      name: 'salsa',
+      name: 'Salsa',
     },
   ];
 }

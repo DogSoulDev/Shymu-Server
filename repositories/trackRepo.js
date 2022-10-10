@@ -1,7 +1,7 @@
 const db = require('../models');
 const normalizeDBQuery = require('../utils/normalizeDBQuery');
 
-class TracksRepo {
+class TrackRepo {
   create(options) {
     return normalizeDBQuery(db.Tracks.create(options));
   }
@@ -19,4 +19,4 @@ class TracksRepo {
   }
 }
 
-module.exports = new TracksRepo();
+module.exports = new TrackRepo();

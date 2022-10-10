@@ -1,13 +1,15 @@
-const UsersRepo = require('./usersRepo');
-const TracksRepo = require('./tracksRepo');
-const PlaylistsRepo = require('./playlistsRepo');
+const UserRepo = require('./userRepo');
+const TrackRepo = require('./trackRepo');
+const PlaylistRepo = require('./playlistRepo');
 const PlaybackRepo = require('./playbackRepo');
 const GenreRepo = require('./genreRepo');
+const GenderRepo = require('./genderRepo');
 
 module.exports = {
-  UsersRepo,
-  TracksRepo,
-  PlaylistsRepo,
+  UserRepo,
+  TrackRepo,
+  PlaylistRepo,
   PlaybackRepo,
   GenreRepo,
+  GenderRepo,
 };

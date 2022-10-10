@@ -1,13 +1,15 @@
-const usersController = require('./usersController');
-const tracksController = require('./tracksController');
-const playlistsController = require('./playlistsController');
+const userController = require('./userController');
+const trackController = require('./trackController');
+const playlistController = require('./playlistController');
 const genreController = require('./genreController');
-// const searchController = require('./searchController');
+const genderController = require('./genderController');
+const searchController = require('./searchController');
 
 module.exports = {
-  usersController,
-  tracksController,
-  playlistsController,
+  userController,
+  trackController,
+  playlistController,
   genreController,
-  // searchController,
+  genderController,
+  searchController,
 };

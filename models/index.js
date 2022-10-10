@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
-const UsersModel = require('./usersModel');
-const TracksModel = require('./tracksModel');
-const PlaylistsModel = require('./playlistsModel');
+const UserModel = require('./userModel');
+const TrackModel = require('./trackModel');
+const PlaylistModel = require('./playlistModel');
 const PlaybackModel = require('./playbackModel');
 const GenreModel = require('./genreModel');
-const DefaultModel = require('./defaultModel');
+const GenderModel = require('./genderModel');
+// const DefaultModel = require('./defaultModel');
 
 module.exports = {
-  UsersModel,
-  TracksModel,
-  PlaylistsModel,
+  UserModel,
+  TrackModel,
+  PlaylistModel,
   PlaybackModel,
   GenreModel,
-  DefaultModel,
+  GenderModel,
+  // DefaultModel,
 };

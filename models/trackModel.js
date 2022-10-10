@@ -1,68 +1,66 @@
 const mongoose = require('mongoose');
 const { Schema } = require('mongoose');
 
-const PlaylistSchema = Schema(
+const TrackSchema = Schema(
   {
-    name: {
+    title: {
       type: String,
-      required: [true, 'Playlist name is required!'],
+      required: [true, 'Title required!'],
       trim: true,
     },
-    description: {
+    url: {
       type: String,
       required: false,
-    },
-    collaborative: {
-      type: Boolean,
-      required: false,
-      default: false,
     },
     thumbnail: {
       type: String,
       trim: true,
       required: false,
     },
-    publicAccessible: {
-      type: Boolean,
-      required: false,
-      default: false,
-    },
-    numberSongs: {
+    duration: {
       type: Number,
-      default: 0,
+      required: false,
     },
     rating: {
       type: Number,
       required: false,
       default: 0.0,
     },
+    color: {
+      type: String,
+      trim: true,
+    },
+    genre: {
+      type: Schema.Types.ObjectId,
+      ref: 'genre',
+    },
     authorId: {
       type: Schema.Types.ObjectId,
-      ref: 'users',
+      ref: 'user',
     },
-    tracks: {
+    artists: {
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'tracks',
+          ref: 'user',
         },
       ],
       default: [],
     },
-    followedBy: {
+    playlists: {
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'users',
+          ref: 'playlist',
         },
       ],
       default: [],
     },
-    collaborators: {
+    likedBy: {
       type: [
         {
           type: Schema.Types.ObjectId,
-          ref: 'users',
+          ref: 'user',
         },
       ],
       default: [],
@@ -73,6 +71,6 @@ const PlaylistSchema = Schema(
   }
 );
 
-const Playlists = mongoose.model('playlists', PlaylistSchema);
+const Track = mongoose.model('track', TrackSchema);
 
-module.exports = Playlists;
+module.exports = Track;

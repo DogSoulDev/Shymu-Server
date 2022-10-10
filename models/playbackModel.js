@@ -31,7 +31,7 @@ const PlaybackSchema = Schema(
         {
           trackId: {
             type: Schema.Types.ObjectId,
-            ref: 'tracks',
+            ref: 'track',
           },
           totalPlaybacks: {
             type: Number,
@@ -50,7 +50,7 @@ const PlaybackSchema = Schema(
                 },
                 userId: {
                   type: Schema.Types.ObjectId,
-                  ref: 'users',
+                  ref: 'user',
                 },
                 agent: {
                   type: String,
@@ -74,6 +74,6 @@ const PlaybackSchema = Schema(
   }
 );
 
-const Playback = mongoose.model('playbacks', PlaybackSchema);
+const Playback = mongoose.model('playback', PlaybackSchema);
 
 module.exports = Playback;

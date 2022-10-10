@@ -1,7 +1,7 @@
 const db = require('../models');
 const normalizeDBQuery = require('../utils/normalizeDBQuery');
 
-class UsersRepo {
+class UserRepo {
   create(options) {
     return normalizeDBQuery(db.Users.create(options));
   }
@@ -11,4 +11,4 @@ class UsersRepo {
   }
 }
 
-module.exports = new UsersRepo();
+module.exports = new UserRepo();

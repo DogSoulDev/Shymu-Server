@@ -1,7 +1,7 @@
 const db = require('../models');
 const normalizeDBQuery = require('../utils/normalizeDBQuery');
 
-class PlaylistsRepo {
+class PlaylistRepo {
   create(options) {
     return normalizeDBQuery(db.Playlists.create(options));
   }
@@ -19,4 +19,4 @@ class PlaylistsRepo {
   }
 }
 
-module.exports = new PlaylistsRepo();
+module.exports = new PlaylistRepo();
