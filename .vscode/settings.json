@@ -1,0 +1,7 @@
+{
+  "docwriter.progress.trackClasses": true,
+  "docwriter.progress.trackTypes": true,
+  "docwriter.style": "Auto-detect",
+  "editor.tabCompletion": "on",
+  "diffEditor.codeLens": true
+}

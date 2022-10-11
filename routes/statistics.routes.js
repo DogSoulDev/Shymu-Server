@@ -5,10 +5,10 @@ const { playbackController } = require('../controllers');
 Router.get(
   '/tracks/playbacks',
   authMiddleware,
-  paybackController.fetchPlaybacks
+  playbackController.fetchPlaybacks
 );
 
-Router.get('/tracks/', authMiddleware, trackPlaybackController.fetchStats);
+Router.get('/tracks/statistics', authMiddleware, playbackController.fetchStats);
 
 module.exports = {
   Router: Router,

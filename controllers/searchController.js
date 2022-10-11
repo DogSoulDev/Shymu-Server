@@ -1,10 +1,11 @@
 const db = require('../models');
 
+
+//*Search for tracks, playlists and users.
 async function searchTrack(req, res, next) {
   const _id = req.headers._id;
   try {
     const searchText = req.query?.q;
-
     if (!searchText) {
       return res.status(400).json({
         message: 'Write here to find your songs!',
@@ -40,7 +41,6 @@ async function searchTrack(req, res, next) {
       )
         .populate('userId', 'userName')
         .sort({ likedBy: -1 });
-
       const playlist = await db.Playlist.find(
         {
           $or: [
@@ -65,7 +65,6 @@ async function searchTrack(req, res, next) {
       )
         .populate('userId', 'userName')
         .sort({ followedBy: -1 });
-
       const ownerPlaylist = playlist.map((playlist) => {
         if (playlist.userId._id === _id) {
           return { ...playlist._doc, isOwner: true };
@@ -73,7 +72,6 @@ async function searchTrack(req, res, next) {
           return { ...playlist._doc, isOwner: false };
         }
       });
-
       const user = await db.User.find(
         {
           $or: [{ userName: { $regex: searchText, $options: 'i' } }],
@@ -85,7 +83,6 @@ async function searchTrack(req, res, next) {
       )
         .sort({ userName: 1 })
         .lean();
-
       return res.status(200).json({
         user,
         playlist: ownerPlaylist,

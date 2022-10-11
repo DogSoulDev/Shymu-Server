@@ -4,27 +4,27 @@ const mongoose = require('mongoose');
 const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
 const { cloudinary } = require('../services/cloudinary/index');
 
+//* Create a new playlist
+//* @param {Object} req - The request object
+//* @param {Object} res - The response object
+//* @param {Function} next - The next middleware function in the stack
+//* @returns {Object} - The response object
 async function createPlaylist(req, res, next) {
   try {
     const _id = req.headers._id;
-
     const thumbnail = req.file.path;
-
     const playlistData = {
       userId: _id,
       name: req.body.name,
       description: req.body.description,
       publicAccessible: req.body.publicAccessible,
     };
-
     const thumbnailPicture = await cloudinary.uploader.upload(thumbnail, {
       resource_type: 'image',
       folder: '',
     });
     playlistData.thumbnail = thumbnailPicture.secure_url;
-
     await db.Playlist.create(playlistData);
-
     if (playlistData) {
       const playlists = await db.Playlist.find(
         { userId: _id },
@@ -36,7 +36,6 @@ async function createPlaylist(req, res, next) {
           followedBy: 1,
         }
       ).exec();
-
       return res.status(201).send({
         success: 'Playlist created!',
         data: playlists,
@@ -52,6 +51,11 @@ async function createPlaylist(req, res, next) {
   }
 }
 
+//* Follow a playlist
+//* @param {Object} req - The request object
+//* @param {Object} res - The response object
+//* @param {Function} next - The next middleware function in the stack
+//* @returns {Object} - The response object
 async function followPlaylist(req, res, next) {
   try {
     const _id = req.headers._id;
@@ -104,6 +108,11 @@ async function followPlaylist(req, res, next) {
   }
 }
 
+//* Get all playlists
+//* @param {Object} req - The request object
+//* @param {Object} res - The response object
+//* @param {Function} next - The next middleware function in the stack
+//* @returns {Object} - The response object
 async function getAllPlaylists(req, res, next) {
   try {
     const _id = req.headers._id;
@@ -142,7 +151,6 @@ async function getAllPlaylists(req, res, next) {
           },
         },
       ]).exec();
-
       const owned = await db.Playlist.aggregate([
         {
           $match: { userId: _id },
@@ -171,7 +179,6 @@ async function getAllPlaylists(req, res, next) {
           },
         },
       ]).exec();
-
       if (followed.length > 0 || owned.length > 0) {
         res.status(200).send({
           success: 'Playlists found',
@@ -182,7 +189,6 @@ async function getAllPlaylists(req, res, next) {
         });
         return;
       }
-
       if (followed.length === 0 && owned.length === 0) {
         res.status(200).send({
           success: 'Playlists found',
@@ -207,10 +213,14 @@ async function getAllPlaylists(req, res, next) {
   }
 }
 
+//* Add a track to a playlist
+//* @param {Object} req - The request object
+//* @param {Object} res - The response object
+//* @param {Function} next - The next middleware function in the stack
+//* @returns {Object} - The response object
 async function addTrack(req, res, next) {
   const playListId = mongoose.Types.ObjectId(req.params.id);
   const tracks = req.body.tracks;
-
   try {
     const findPlaylist = await PlaylistRepo.findOne({ _id: playListId });
     const numSongs = findPlaylist.data.numberSongs;
@@ -248,6 +258,10 @@ async function addTrack(req, res, next) {
   }
 }
 
+//* Get public playlists
+//* @param {Object} req
+//* @param {Object} res
+//* @param {Function} next
 async function getPublicPlaylists(req, res, next) {
   try {
     const _id = req.headers._id;
@@ -284,7 +298,6 @@ async function getPublicPlaylists(req, res, next) {
           },
         },
       ]).exec();
-
       if (publicList.length > 0) {
         res.status(200).send({
           success: 'Found!',
@@ -308,12 +321,14 @@ async function getPublicPlaylists(req, res, next) {
   }
 }
 
+//* Get playlist by id
+//* @param {Object} req
+//* @param {Object} res
+//* @param {Function} next
 async function getPlaylistById(req, res, next) {
   try {
     const _id = req.headers._id;
-
     const playlistId = req.params['id'];
-
     const playlistDetails = await db.Playlist.findById(
       mongoose.Types.ObjectId(playlistId),
       {
@@ -337,7 +352,6 @@ async function getPlaylistById(req, res, next) {
       path: 'tracks.trackId',
       populate: [{ path: 'userId' }, { path: 'genre' }],
     });
-
     const playlistTracks = playlistDetails.tracks.map((track) => {
       return {
         _id: track.trackId._id,
@@ -354,7 +368,6 @@ async function getPlaylistById(req, res, next) {
         },
       };
     });
-
     if (playlistDetails) {
       const owned = playlistDetails.userId === _id ? true : false;
       // playlistDetails.owned = owned;
@@ -370,7 +383,6 @@ async function getPlaylistById(req, res, next) {
     } else {
       return res.status(400).send({ error: 'Please try again later!' });
     }
-
     // next();
   } catch (error) {
     res.status(500).send({
@@ -380,10 +392,13 @@ async function getPlaylistById(req, res, next) {
   }
 }
 
+//* Update playlist
+//* @param {Object} req
+//* @param {Object} res
+//* @param {Function} next
 async function updatePlaylist(req, res, next) {
   const playlistId = req.params['id'];
   const { name, description, publicAccessible } = req.body;
-
   const playlistSchema = {
     name: name,
     description: description,
@@ -413,13 +428,11 @@ async function updatePlaylist(req, res, next) {
         playlistSchema.thumbnail = uploadNewImage.secure_url;
       }
     }
-
     const updated = await db.Playlist.findOneAndUpdate(
       { _id: playlistId },
       playlistSchema,
       { new: true }
     );
-
     res.status(200).send({
       success: 'Playlist updated!',
       data: playlistSchema,
@@ -433,9 +446,13 @@ async function updatePlaylist(req, res, next) {
   }
 }
 
+//* Delete a playlist
+//* @param {Object} req - Express request object
+//* @param {Object} res - Express response object
+//* @param {Function} next - Express next middleware function
+//* @returns {Object} - JSON response object
 async function deletePlaylist(req, res, next) {
   const playlistId = req.params['id'];
-
   try {
     const playlist = await db.Playlist.findOne(
       { _id: playlistId },
@@ -466,22 +483,22 @@ async function deletePlaylist(req, res, next) {
   }
 }
 
+//* @param {Object} req
+//* @param {Object} res
+//* @param {Function} next
+//* @returns {Object}
 async function orderTracks(req, res, next) {
   const { track, index } = req.body;
-
   const { id } = req.params;
   try {
     const playlist = await PlaylistRepo.findOne({ _id: id });
-
     const oldOrder = playlist.data.tracks.find(
       (el) => el.trackId === track
     ).order;
-
     const orderedList = playlist.data.tracks.map((playlistTrack) => {
       if (playlistTrack.trackId == track) {
         return { trackId: playlistTrack.trackId, order: index };
       }
-
       if (index < oldOrder) {
         if (playlistTrack.order >= index && playlistTrack.order <= oldOrder) {
           return {
@@ -490,7 +507,6 @@ async function orderTracks(req, res, next) {
           };
         }
       }
-
       if (index > oldOrder) {
         if (playlistTrack.order <= index && playlistTrack.order >= oldOrder) {
           return {
@@ -499,10 +515,8 @@ async function orderTracks(req, res, next) {
           };
         }
       }
-
       return { trackId: playlistTrack.trackId, order: playlistTrack.order };
     });
-
     const updatedPlaylist = await PlaylistRepo.findByIdAndUpdate(
       { _id: id },
       { tracks: orderedList },
@@ -513,13 +527,11 @@ async function orderTracks(req, res, next) {
         .status(400)
         .send({ error: 'Playlist could not be updated, try again later!' });
     }
-
     if (updatedPlaylist.data) {
       return res
         .status(200)
         .send({ success: 'Succes!', data: updatedPlaylist.data.tracks });
     }
-
     next();
   } catch (err) {
     next(err);

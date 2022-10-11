@@ -1,6 +1,6 @@
 const Router = require('express').Router;
 const GenderRouter = Router();
-const { errorMiddleware, authMiddleware } = require("../middleware");
+const { errorMiddleware, authMiddleware } = require('../middleware');
 const { genderController } = require('../controllers');
 
 GenderRouter.get('/gendre', authMiddleware, genderController.getGenders);

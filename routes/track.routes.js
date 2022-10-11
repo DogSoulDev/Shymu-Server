@@ -8,21 +8,21 @@ TrackRouter.post(
   '/tracks',
   multerAudio.fields([
     { name: 'track', maxCount: 1 },
-    { name: 'thumbnail', maxCount: 1 },
+    { name: 'cover', maxCount: 1 },
   ]),
   trackController.uploadTrack
 );
 TrackRouter.patch(
   '/:id',
   authMiddleware,
-  multerImage.single('thumbnail'),
+  multerImage.single('cover'),
   trackController.editTrack
 );
 TrackRouter.get('/:id', authMiddleware, trackController.getTrack);
 TrackRouter.get(
   '/:id/play',
   authMiddleware,
-  multerImage.single('thumbnail'),
+  multerImage.single('cover'),
   trackController.playTrack
 );
 TrackRouter.put('/:id/like', authMiddleware, trackController.likeTrack);

@@ -5,7 +5,7 @@ const PlaylistModel = require('./playlistModel');
 const PlaybackModel = require('./playbackModel');
 const GenreModel = require('./genreModel');
 const GenderModel = require('./genderModel');
-// const DefaultModel = require('./defaultModel');
+const DefaultModel = require('./defaultModel');
 
 module.exports = {
   UserModel,
@@ -14,5 +14,5 @@ module.exports = {
   PlaybackModel,
   GenreModel,
   GenderModel,
-  // DefaultModel,
+  DefaultModel,
 };

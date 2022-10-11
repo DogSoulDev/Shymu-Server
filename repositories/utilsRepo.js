@@ -5,14 +5,12 @@ async function handleDbResponse(res, dbResponse) {
       error: dbResponse.error,
     });
   }
-
   if (dbResponse.data) {
     return res.status(201).send({
       data: dbResponse.data,
       error: null,
     });
   }
-
   return res.status(404).send({
     data: null,
     error: 'Not Found',

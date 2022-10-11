@@ -13,7 +13,7 @@ UserRouter.post(
 );
 UserRouter.patch('/update', authMiddleware, userController.updateUser);
 UserRouter.get('/:id', authMiddleware, userController.getUser);
-UserRouter.get('/:id/tracks', authMiddleware, userController.getUserTracks);
-UserRouter.get('/:id/playlist', authMiddleware, userController.getUserPlaylist);
+UserRouter.get('/:id/tracks', userController.getUserTracks);
+UserRouter.get('/:id/playlist', userController.getUserPlaylist);
 
 module.exports = UserRouter;

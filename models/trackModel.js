@@ -48,10 +48,6 @@ const TrackSchema = Schema(
       required: false,
       default: 0.0,
     },
-    color: {
-      type: String,
-      trim: true,
-    },
     authorId: {
       type: Schema.Types.ObjectId,
       ref: 'user',

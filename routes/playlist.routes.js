@@ -9,7 +9,11 @@ PlaylistsRouter.post(
   multerImage.single('thumbnail'),
   playlistsController.createPlaylist
 );
-PlaylistsRouter.get('/playlists', authMiddleware, playlistsController.getAllPlaylists);
+PlaylistsRouter.get(
+  '/playlists',
+  authMiddleware,
+  playlistsController.getAllPlaylists
+);
 PlaylistsRouter.get(
   '/public',
   authMiddleware,
