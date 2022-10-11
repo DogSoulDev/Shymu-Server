@@ -10,16 +10,16 @@ async function searchTrack(req, res, next) {
         message: 'Write here to find your songs!',
       });
     }
-    if (searchText.length < 3) {
+    if (searchText.length < 4) {
       return res.status(400).json({
-        message: 'The search is a minimum of 3 characters!',
+        message: 'The search is a minimum of 4 characters!',
       });
     }
     if (searchText) {
       const track = await db.Track.find(
         {
           $or: [
-            { name: { $regex: searchText, $options: 'i' } }, // i = case insensitive
+            { name: { $regex: searchText, $options: 'i' } },
             { genre: { $regex: searchText, $options: 'i' } },
           ],
         },

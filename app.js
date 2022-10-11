@@ -12,6 +12,7 @@ dotenv.config();
 
 const app = express();
 
+//!Revisar porque no lo pilla asi:
 // const {
 //   UsersRouter,
 //   TracksRouter,
@@ -19,9 +20,10 @@ const app = express();
 //   GenreRouter,
 //   SearchRouter,
 // } = require('./routes');
-const usersRouter = require('./routes/users.routes');
-const tracksRouter = require('./routes/tracks.routes');
-const playlistsRouter = require('./routes/playlists.routes');
+
+const userRouter = require('./routes/user.routes');
+const trackRouter = require('./routes/track.routes');
+const playlistRouter = require('./routes/playlist.routes');
 const genreRouter = require('./routes/genre.routes');
 
 app.use(morgan('dev'));
@@ -35,9 +37,9 @@ app.use(json());
 //     limit: '50mb',
 //   })
 // );
-app.use(usersRouter);
-app.use(tracksRouter);
-app.use(playlistsRouter);
+app.use(userRouter);
+app.use(trackRouter);
+app.use(playlistRouter);
 app.use(genreRouter);
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 // app.use(UsersRouter, authMiddleware);

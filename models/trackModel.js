@@ -8,11 +8,33 @@ const TrackSchema = Schema(
       required: [true, 'Title required!'],
       trim: true,
     },
+    artists: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'user',
+        },
+      ],
+      default: [],
+    },
+    albums: {
+      type: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'playlist',
+        },
+      ],
+      default: [],
+    },
+    genre: {
+      type: Schema.Types.ObjectId,
+      ref: 'genre',
+    },
     url: {
       type: String,
       required: false,
     },
-    thumbnail: {
+    cover: {
       type: String,
       trim: true,
       required: false,
@@ -30,22 +52,9 @@ const TrackSchema = Schema(
       type: String,
       trim: true,
     },
-    genre: {
-      type: Schema.Types.ObjectId,
-      ref: 'genre',
-    },
     authorId: {
       type: Schema.Types.ObjectId,
       ref: 'user',
-    },
-    artists: {
-      type: [
-        {
-          type: Schema.Types.ObjectId,
-          ref: 'user',
-        },
-      ],
-      default: [],
     },
     playlists: {
       type: [

@@ -1,15 +1,15 @@
-// const Router = require("express").Router();
-// const { errorMiddleware, authMiddleware } = require("../middleware");
-// const { trackPlaybackController } = require("../controllers");
+const Router = require('express').Router();
+const { errorMiddleware, authMiddleware } = require('../middleware');
+const { playbackController } = require('../controllers');
 
-// Router.get(
-//   "/tracks/playbacks",
-//   authMiddleware,
-//   trackPlaybackController.fetchPlaybacks,
-// );
+Router.get(
+  '/tracks/playbacks',
+  authMiddleware,
+  paybackController.fetchPlaybacks
+);
 
-// Router.get("/tracks/", authMiddleware, trackPlaybackController.fetchStats);
+Router.get('/tracks/', authMiddleware, trackPlaybackController.fetchStats);
 
-// module.exports = {
-//   Router: Router,
-// };
+module.exports = {
+  Router: Router,
+};
