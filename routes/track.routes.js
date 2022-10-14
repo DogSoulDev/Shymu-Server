@@ -1,28 +1,23 @@
-const Router = require('express').Router;
+const Router = require('express');
 const TrackRouter = Router();
+const { trackController } = require('../controllers');
+
 const { errorMiddleware, authMiddleware } = require('../middleware');
 const { multerAudio, multerImage } = require('../utils/multer');
-const { trackController } = require('../controllers');
 
 TrackRouter.post(
   '/tracks',
-  multerAudio.fields([
-    { name: 'track', maxCount: 1 },
-    { name: 'cover', maxCount: 1 },
-  ]),
   trackController.uploadTrack
 );
 TrackRouter.patch(
   '/:id',
   authMiddleware,
-  multerImage.single('cover'),
   trackController.editTrack
 );
 TrackRouter.get('/:id', authMiddleware, trackController.getTrack);
 TrackRouter.get(
   '/:id/play',
   authMiddleware,
-  multerImage.single('cover'),
   trackController.playTrack
 );
 TrackRouter.put('/:id/like', authMiddleware, trackController.likeTrack);

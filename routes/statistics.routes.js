@@ -1,8 +1,10 @@
-const Router = require('express').Router();
-const { errorMiddleware, authMiddleware } = require('../middleware');
+const Router = require('express');
+const Statistics = Router();
 const { playbackController } = require('../controllers');
+const { errorMiddleware, authMiddleware } = require('../middleware');
 
-Router.get(
+
+Statistics.get(
   '/tracks/playbacks',
   authMiddleware,
   playbackController.fetchPlaybacks
@@ -11,5 +13,5 @@ Router.get(
 Router.get('/tracks/statistics', authMiddleware, playbackController.fetchStats);
 
 module.exports = {
-  Router: Router,
+  Statistics,
 };

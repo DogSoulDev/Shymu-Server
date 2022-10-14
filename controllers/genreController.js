@@ -1,4 +1,5 @@
 const { GenreRepo } = require('../repositories');
+const { config } = require('../config');
 
 //* Get all genres
 //* @param {Object} req - Express request object

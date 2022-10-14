@@ -3,6 +3,7 @@ const { UserRepo, PlaylistRepo, TrackRepo } = require('../repositories');
 const mongoose = require('mongoose');
 const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
 const { cloudinary } = require('../services/cloudinary/index');
+const { config } = require('../config');
 
 //* Create a new playlist
 //* @param {Object} req - The request object

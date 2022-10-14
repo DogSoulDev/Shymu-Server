@@ -1,19 +1,17 @@
-const { UsersRouter } = require('./users.routes');
-const { TracksRouter } = require('./tracks.routes');
-const { PlaylistsRouter } = require('./playlists.routes');
-const { GenreRouter } = require('./genre.routes');
-const { StatsRouter } = require('./statistics.routes');
-const { SearchRouter } = require('./search.routes');
-const { GenderRouter } = require('./gender.routes');
-const { AlbumRouter } = require('./album.routes');
+// const UserRouter = require('./user.routes');
+// const TrackRouter = require('./tracks.routes');
+// const PlaylistRouter = require('./playlists.routes');
+// const GenreRouter = require('./genre.routes');
+// const GenderRouter = require('./gender.routes');
+// const StatisticsRouter = require('./statistics.routes');
+// const SearchRouter = require('./search.routes');
 
-module.exports = {
-  UsersRouter,
-  TracksRouter,
-  PlaylistsRouter,
-  GenreRouter,
-  GenderRouter,
-  StatsRouter,
-  SearchRouter,
-  AlbumRouter,
-};
+// module.exports = {
+//   UserRouter,
+//   TrackRouter,
+//   PlaylistRouter,
+//   GenreRouter,
+//   GenderRouter,
+//   StatisticsRouter,
+//   SearchRouter,
+// };

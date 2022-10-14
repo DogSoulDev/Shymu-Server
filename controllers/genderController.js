@@ -1,5 +1,6 @@
 const db = require('../models');
 const { GenderRepo } = require('../repositories');
+const { config } = require('../config');
 
 //* Get all genders
 //* @param {Object} req - The request object

@@ -21,10 +21,12 @@ const {
   CLOUDINARY_API_KEY,
   CLOUDINARY_API_SECRET,
   CLOUDINARY_NAME,
+  DEFAULT_PROFILE_IMAGE,
+  DEFAULT_PLAYLIST_THUMBNAIL,
 } = process.env;
 
 const config = {
-  development: {
+  server: {
     app: {
       port: DB_PORT || DB_ALTERNATIVE_PORT,
     },
@@ -57,6 +59,8 @@ const config = {
       key: CLOUDINARY_API_KEY,
       secret: CLOUDINARY_API_SECRET,
       name: CLOUDINARY_NAME,
+      profile_image: DEFAULT_PROFILE_IMAGE,
+      playlist_thumbnail: DEFAULT_PLAYLIST_THUMBNAIL,
     },
   },
 };

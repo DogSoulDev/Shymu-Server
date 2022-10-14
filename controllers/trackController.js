@@ -2,6 +2,7 @@ const db = require('../models');
 const { TracksRepo } = require('../repositories');
 const { cloudinary } = require('../services/cloudinary/index');
 const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
+const { config } = require('../config');
 
 //* Uploads a new track to the database
 //* @param {Object} req - The request object
@@ -13,14 +14,14 @@ async function uploadTrack(req, res, next) {
     //*Upload audio to cloudinary
     const uploadedAudio = cloudinary.uploader.upload(req.files.track[0].path, {
       resource_type: 'video',
-      folder: '',
+      folder: '//!Add the folder of cloudinary',
     });
     //*Upload thumbnail to cloudinary
     const uploadedImage = cloudinary.uploader.upload(
       req.files.thumbnail[0].path,
       {
         resource_type: 'image',
-        folder: '',
+        folder: '//!Add the folder of cloudinary',
       }
     );
     //*Uploads finish

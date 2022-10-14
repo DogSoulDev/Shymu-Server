@@ -1,5 +1,5 @@
 const db = require('../models');
-
+const { config } = require('../config');
 
 //*Search for tracks, playlists and users.
 async function searchTrack(req, res, next) {

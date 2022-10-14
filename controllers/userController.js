@@ -1,13 +1,13 @@
 const db = require('../models');
 const { UsersRepo, TracksRepo, PlaylistsRepo } = require('../repositories');
 const { cloudinary } = require('../services/cloudinary/index');
-const { DEFAULT_PROFILE_IMAGE } = require('../services/cloudinary/defaults');
+const { config } = require('../config');
 
 //* Function that is used to sign up a user.
 async function signUp(req, res, next) {
   const { email, _id, provider } = req.user;
   const userName = req.user.userName ? req.user.userName : req.body.userName;
-  const profilePicture = req.body.profilePicture || DEFAULT_PROFILE_IMAGE;
+  const profilePicture = req.body.profilePicture || config.server.cloudinary.DEFAULT_PROFILE_IMAGE;
   try {
     const foundUser = await UsersRepo.findOne({ email: email });
     if (foundUser.error) {

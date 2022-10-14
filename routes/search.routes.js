@@ -1,4 +1,4 @@
-const Router = require('express').Router;
+const Router = require('express');
 const SearchRouter = Router();
 const { errorMiddleware, authMiddleware } = require('../middleware');
 const { searchController } = require('../controllers');
