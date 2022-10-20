@@ -35,7 +35,7 @@ const UserSchema = new mongoose.Schema({
   genre: {
     type: Schema.Types.ObjectId,
     ref: 'genre',
-  }
+  },
 });
 //*function getTimestampInSeconds () {
 //*   return Math.floor(Date.now() / 1000)

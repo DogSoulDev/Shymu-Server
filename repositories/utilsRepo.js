@@ -1,4 +1,5 @@
-async function handleDbResponse(res, dbResponse) {
+const db = require('../models');
+async function handleDbResponse(res, db, dbResponse) {
   if (dbResponse.error) {
     return res.status(400).send({
       data: null,

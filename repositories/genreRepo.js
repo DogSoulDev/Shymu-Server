@@ -1,6 +1,7 @@
 const db = require('../models');
 const normalizeDBQuery = require('../utils/normalizeDBQuery');
 
+
 class GenreRepo {
   create(options) {
     return normalizeDBQuery(db.Genre.create(options));

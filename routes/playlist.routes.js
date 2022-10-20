@@ -1,41 +1,40 @@
-const Router = require('express').Router();
+const { Router } = require('express');
 const PlaylistRouter = Router();
-
-const { playlistsController } = require('../controllers');
+const { playlistController } = require('../controllers');
 const { errorMiddleware, authMiddleware } = require('../middleware');
 
-PlaylistRouter.post('/playlist', playlistsController.createPlaylist);
+PlaylistRouter.post('/playlist', playlistController.createPlaylist);
 PlaylistRouter.get(
   '/playlists',
   authMiddleware,
-  playlistsController.getAllPlaylists
+  playlistController.getAllPlaylists
 );
 PlaylistRouter.get(
   '/public',
   authMiddleware,
-  playlistsController.getPublicPlaylists
+  playlistController.getPublicPlaylists
 );
-PlaylistRouter.patch('/:id', authMiddleware, playlistsController.addTrack);
-PlaylistRouter.get('/:id', authMiddleware, playlistsController.getPlaylistById);
+PlaylistRouter.patch('/:id', authMiddleware, playlistController.addTrack);
+PlaylistRouter.get('/:id', authMiddleware, playlistController.getPlaylistById);
 PlaylistRouter.put(
   '/:id/follow',
   authMiddleware,
-  playlistsController.followPlaylist
+  playlistController.followPlaylist
 );
 PlaylistRouter.patch(
   '/update/:id',
   authMiddleware,
-  playlistsController.updatePlaylist
+  playlistController.updatePlaylist
 );
 PlaylistRouter.delete(
   '/:id',
   authMiddleware,
-  playlistsController.deletePlaylist
+  playlistController.deletePlaylist
 );
 PlaylistRouter.put(
   '/order/:id',
   authMiddleware,
-  playlistsController.orderTracks
+  playlistController.orderTracks
 );
 
 module.exports = PlaylistRouter;

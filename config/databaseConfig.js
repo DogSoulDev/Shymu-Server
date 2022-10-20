@@ -24,6 +24,7 @@ const {
   API_SECRET,
   PROFILE_IMAGE,
   PLAYLIST_THUMBNAIL,
+  CLOUDINARY_HOST,
 } = process.env;
 
 const config = {
@@ -62,6 +63,7 @@ const config = {
       api_secret: API_SECRET,
       profile_image: PROFILE_IMAGE,
       playlist_thumbnail: PLAYLIST_THUMBNAIL,
+      cloudinary_host: CLOUDINARY_HOST,
     },
   },
 };

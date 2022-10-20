@@ -1,6 +1,5 @@
-const Router = require('express').Router();
+const { Router } = require('express');
 const GenreRouter = Router();
-
 const { genreController } = require('../controllers');
 const { errorMiddleware, authMiddleware } = require('../middleware');
 

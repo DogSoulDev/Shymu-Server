@@ -16,7 +16,7 @@ async function authMiddleware(req, res, next) {
     req.user = {
       _id: uid,
       email: email,
-      provider: firebase.FB_AUTH_PROVIDER_X509_CERT_URL,
+      provider: firebase.sign_in_provider,
     };
 
     if (firebase.sign_in_provider !== 'password') {

@@ -1,18 +1,19 @@
 const db = require('../models');
 const normalizeDBQuery = require('../utils/normalizeDBQuery');
 
+
 class PlaylistRepo {
   create(options) {
-    return normalizeDBQuery(db.Playlists.create(options));
+    return normalizeDBQuery(db.Playlist.create(options));
   }
   find(query) {
-    return normalizeDBQuery(db.Playlists.find(query, ''));
+    return normalizeDBQuery(db.Playlist.find(query, ''));
   }
   findOne(query) {
-    return normalizeDBQuery(db.Playlists.findOne(query, ''));
+    return normalizeDBQuery(db.Playlist.findOne(query, ''));
   }
   findById(id) {
-    return normalizeDBQuery(db.Playlists.findById(id, ''));
+    return normalizeDBQuery(db.Playlist.findById(id, ''));
   }
 }
 

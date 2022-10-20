@@ -22,6 +22,7 @@ cloudinary.config({
   api_secret: config.server.cloudinary.api_secret,
   profile_image: config.server.cloudinary.profile_image,
   playlist_thumbnail: config.server.cloudinary.playlist_thumbnail,
+  cloudinary_host: config.server.cloudinary.cloudinary_host,
 });
 //*NO TOCAR, SUBIDA DE FOTOS , FUNCIONANDO
 const storage = new CloudinaryStorage({
@@ -43,7 +44,9 @@ app.post('/', upload.single('picture'), async (req, res) => {
 const start = (port) => {
   try {
     app.listen(port, () => {
-      console.log(`Api up and running at: http://localhost:${port}`);
+      console.log(
+        `Api up and running at: ${config.server.cloudinary.cloudinary_host}`
+      );
     });
   } catch (error) {
     console.error(error);
@@ -97,6 +100,7 @@ app.post('/audio/upload', async (req, res) => {
       api_secret: config.server.cloudinary.api_secret,
       profile_image: config.server.cloudinary.profile_image,
       playlist_thumbnail: config.server.cloudinary.playlist_thumbnail,
+      cloudinary_host: config.server.cloudinary.cloudinary_host,
     });
     const { path } = req.file; //! file becomes available in req at this point
     const fName = req.file.originalname.split('.')[0];
@@ -157,6 +161,7 @@ app.post('/video/upload', async (req, res) => {
       api_secret: config.server.cloudinary.api_secret,
       profile_image: config.server.cloudinary.profile_image,
       playlist_thumbnail: config.server.cloudinary.playlist_thumbnail,
+      cloudinary_host: config.server.cloudinary.cloudinary_host,
     });
     const { path } = req.file; //! file becomes available in req at this point
     const fName = req.file.originalname.split('.')[0];
