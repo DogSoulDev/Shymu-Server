@@ -1,9 +1,9 @@
-const Router = require('express');
+const Router = require('express').Router();
 const TrackRouter = Router();
-const { trackController } = require('../controllers');
 
+const { trackController } = require('../controllers');
 const { errorMiddleware, authMiddleware } = require('../middleware');
-const { multerAudio, multerImage } = require('../utils/multer');
+
 
 TrackRouter.post(
   '/tracks',

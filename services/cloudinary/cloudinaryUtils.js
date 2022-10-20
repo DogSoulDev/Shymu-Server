@@ -1,3 +1,5 @@
+//! Verificar funcionamiento
+
 function getPublicId(url) {
   const splitedURL = url.split('/');
   const lastItems = splitedURL.splice(7).join('/');

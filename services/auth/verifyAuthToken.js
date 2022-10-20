@@ -1,9 +1,9 @@
-const { verifyIdToken } = require('./authProvider');
+// const { verifyIdToken } = require('./authProvider');
 
-function verifyAuthToken(token) {
-  return verifyIdToken(token);
-}
+// function verifyAuthToken(token) {
+//   return verifyIdToken(token);
+// }
 
-module.exports = {
-  verifyAuthToken: verifyAuthToken,
-};
+// module.exports = {
+//   verifyAuthToken: verifyAuthToken,
+// };

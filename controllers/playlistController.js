@@ -353,6 +353,8 @@ async function getPlaylistById(req, res, next) {
       path: 'tracks.trackId',
       populate: [{ path: 'userId' }, { path: 'genre' }],
     });
+
+    //!REVISAR SI ES TRACK O TRACKS
     const playlistTracks = playlistDetails.tracks.map((track) => {
       return {
         _id: track.trackId._id,

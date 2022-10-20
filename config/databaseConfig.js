@@ -5,6 +5,7 @@ dotenv.config();
 
 const {
   CLIENT_URL,
+  ALTERNATIVE_CLIENT_URL,
   DB_MONGODB,
   DB_PORT = 3002,
   DB_ALTERNATIVE_PORT,
@@ -18,11 +19,11 @@ const {
   FB_TOKEN_URI,
   FB_AUTH_PROVIDER_X509_CERT_URL,
   FB_CLIENT_X509_CERT_URL,
-  CLOUDINARY_API_KEY,
-  CLOUDINARY_API_SECRET,
-  CLOUDINARY_NAME,
-  DEFAULT_PROFILE_IMAGE,
-  DEFAULT_PLAYLIST_THUMBNAIL,
+  CLOUD_NAME,
+  API_KEY,
+  API_SECRET,
+  PROFILE_IMAGE,
+  PLAYLIST_THUMBNAIL,
 } = process.env;
 
 const config = {
@@ -31,7 +32,7 @@ const config = {
       port: DB_PORT || DB_ALTERNATIVE_PORT,
     },
     client: {
-      url: CLIENT_URL || 'http://localhost:3000',
+      url: CLIENT_URL || ALTERNATIVE_CLIENT_URL,
     },
     logger: {
       warn: logger.warn,
@@ -56,11 +57,11 @@ const config = {
       client_x509_cert_url: FB_CLIENT_X509_CERT_URL,
     },
     cloudinary: {
-      key: CLOUDINARY_API_KEY,
-      secret: CLOUDINARY_API_SECRET,
-      name: CLOUDINARY_NAME,
-      profile_image: DEFAULT_PROFILE_IMAGE,
-      playlist_thumbnail: DEFAULT_PLAYLIST_THUMBNAIL,
+      cloud_name: CLOUD_NAME,
+      api_key: API_KEY,
+      api_secret: API_SECRET,
+      profile_image: PROFILE_IMAGE,
+      playlist_thumbnail: PLAYLIST_THUMBNAIL,
     },
   },
 };

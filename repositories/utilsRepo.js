@@ -17,6 +17,4 @@ async function handleDbResponse(res, dbResponse) {
   });
 }
 
-module.exports = {
-  handleDbResponse: handleDbResponse,
-};
+module.exports = new handleDbResponse();

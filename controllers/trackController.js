@@ -1,5 +1,5 @@
 const db = require('../models');
-const { TracksRepo } = require('../repositories');
+const { TrackRepo } = require('../repositories');
 const { cloudinary } = require('../services/cloudinary/index');
 const { getPublicId } = require('../services/cloudinary/cloudinaryUtils');
 const { config } = require('../config');
@@ -38,13 +38,13 @@ async function uploadTrack(req, res, next) {
       genre: genre,
     };
     //*Create the new track
-    const newTrack = await TracksRepo.create(trackSchema);
+    const newTrack = await TrackRepo.create(trackSchema);
     if (newTrack.error) {
       return res.status(400).send({ error: 'Error uploading your track' });
     }
     //*Filter the new list of updated tracks uploaded by the logged user and add it to the server response
     if (newTrack.data) {
-      const updatedTracks = await TracksRepo.find(
+      const updatedTracks = await TrackRepo.find(
         { userId: req.headers._id },
         { _id: 1, name: 1, thumbnail: 1, genre: 1 }
       );
@@ -80,7 +80,7 @@ function getTracksWithGenres(listOfTracks) {
 //*A function that is used to get a track.
 async function getTrack(req, res, next) {
   try {
-    const foundTrack = await TracksRepo.findOne({
+    const foundTrack = await TrackRepo.findOne({
       _id: req.params.id,
       userId: req.headers._id,
     });
@@ -113,7 +113,7 @@ async function getTrack(req, res, next) {
 //* @param {Function} next - The next middleware function in the stack
 async function getMyTracks(req, res, next) {
   try {
-    const findingTracks = await TracksRepo.find(
+    const findingTracks = await TrackRepo.find(
       { userId: req.headers._id },
       {
         _id: 1,
@@ -158,7 +158,7 @@ async function editTrack(req, res, next) {
   const { name, genre } = req.body;
   const trackSchema = { name: name, genre: genre };
   try {
-    const track = await TracksRepo.findOne(
+    const track = await TrackRepo.findOne(
       { _id: id },
       { _id: 1, name: 1, genre: 1, thumbnail: 1 }
     );
@@ -177,14 +177,14 @@ async function editTrack(req, res, next) {
         trackSchema.thumbnail = uploadedImage.secure_url;
       }
     }
-    const updatedTrack = await TracksRepo.findByIdAndUpdate(id, trackSchema, {
+    const updatedTrack = await TrackRepo.findByIdAndUpdate(id, trackSchema, {
       new: true,
     });
     if (updatedTrack.error) {
       return res.status(400).send({ error: 'Error updating your track' });
     }
     if (updatedTrack.data) {
-      const updatedTracks = await TracksRepo.find({ userId: req.headers._id });
+      const updatedTracks = await TrackRepo.find({ userId: req.headers._id });
       const tracks = getTracksWithGenres(updatedTracks.data);
       return res.status(200).send({
         success: `Track ${updatedTrack.data.name} updated`,
@@ -205,7 +205,7 @@ async function editTrack(req, res, next) {
 async function deleteTrack(req, res, next) {
   const id = req.params['id'];
   try {
-    const track = await TracksRepo.findOne(
+    const track = await TrackRepo.findOne(
       { _id: id },
       { url: 1, thumbnail: 1 }
     );
@@ -222,11 +222,11 @@ async function deleteTrack(req, res, next) {
       resource_type: 'image',
     });
     await Promise.all([destroyTrack, destroyThumbnail]);
-    const deleteTrack = await TracksRepo.deleteOne({
+    const deleteTrack = await TrackRepo.deleteOne({
       _id: id,
       userId: req.headers._id,
     });
-    const updatedTracks = await TracksRepo.find({ userId: req.headers._id });
+    const updatedTracks = await TrackRepo.find({ userId: req.headers._id });
     const tracks = getTracksWithGenres(updatedTracks.data);
     if (deleteTrack.error) {
       return res.status(400).send({ error: 'Error deleting your track' });
@@ -250,7 +250,7 @@ async function deleteTrack(req, res, next) {
 //* @returns {Object} - Response object
 async function getLikedTracks(req, res, next) {
   try {
-    const tracks = await TracksRepo.find(
+    const tracks = await TrackRepo.find(
       { likedBy: req.headers._id },
       { _id: 1, name: 1, url: 1, thumbnail: 1, userId: 1 }
     );
@@ -288,7 +288,7 @@ async function likeTrack(req, res, next) {
   try {
     const id = req.params.id;
     const userId = req.headers._id;
-    const updateLike = await TracksRepo.findByIdAndUpdate(
+    const updateLike = await TrackRepo.findByIdAndUpdate(
       id,
       [
         {
@@ -332,7 +332,7 @@ async function likeTrack(req, res, next) {
 //* @param {Function} next - The next middleware function in the stack
 async function playTrack(req, res, next) {
   try {
-    const track = await TracksRepo.find({ _id: req.params.id });
+    const track = await TrackRepo.find({ _id: req.params.id });
     if (track.error) {
       return res.status(400).send({ error: 'Can not load your track' });
     }
@@ -370,7 +370,7 @@ async function getTracksForPlaylist(req, res, next) {
     const filter = playlist.tracks.map((track) => {
       return track.trackId;
     });
-    const tracks = await TracksRepo.find(
+    const tracks = await TrackRepo.find(
       {
         _id: { $nin: filter },
         $or: [{ userId: userId }, { likedBy: { $in: userId } }],

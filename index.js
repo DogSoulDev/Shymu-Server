@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { config } = require('./config');
 const { app } = require('./app');
 
+
 //!Check if logger is OK called this way from config:
 mongoose.connect(`${config.server.db.url}`, (err, req) => {
   try {

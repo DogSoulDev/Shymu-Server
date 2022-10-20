@@ -1,16 +1,32 @@
-const { auth, logger } = require('../services/index');
+const { auth } = require('../services/index');
+const { config } = require('../config');
 
-//* This is a multi-line Google style docstring.
+
 async function authMiddleware(req, res, next) {
+  const { authorization } = req.headers;
+
   try {
     const bearerToken = await auth.getAuthToken(req.headers);
-    const userClaims = await auth.verifyIdToken(bearerToken);
-    await auth.login(req, userClaims);
+    const verifiedToken = await auth.verifyIdToken(bearerToken);
+
+    if (!verifiedToken) {
+      res.status(400).send({ error: 'Error with authentication' });
+    }
+    const { uid, email, firebase } = verifiedToken;
+    req.user = {
+      _id: uid,
+      email: email,
+      provider: firebase.FB_AUTH_PROVIDER_X509_CERT_URL,
+    };
+
+    if (firebase.sign_in_provider !== 'password') {
+      const { name } = verifiedToken;
+      req.user.userName = name;
+    }
     next();
-  } catch (error) {
-    logger.debug(error);
-    res.status(401).send({ error: 'Unauthorized' });
+  } catch (err) {
+    res.status(401).send({ message: 'You are not authorized' });
   }
 }
 
-module.exports = authMiddleware;
+module.exports = { authMiddleware };

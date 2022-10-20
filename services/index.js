@@ -1,4 +1,7 @@
 const { config } = require('../config');
+const cloudinary = require('./cloudinary');
+const logger = require('./logger');
+
 
 const {
   verifyAuthToken,
@@ -7,9 +10,6 @@ const {
   signOut,
   auth,
 } = require('./auth');
-
-const cloudinary = require('./cloudinary');
-const logger = require('./logger');
 
 module.exports = {
   verifyAuthToken,
